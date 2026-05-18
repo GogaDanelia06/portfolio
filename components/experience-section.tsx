@@ -4,10 +4,10 @@ import Reveal from "./reveal";
 export default function ExperienceSection() {
   return (
     <Reveal>
-    <section
-      id="experience"
-      className="border-y border-[var(--color-border)] bg-white/[0.03] py-20"
-    >
+<section
+  id="experience"
+  className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
+>
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
           Experience

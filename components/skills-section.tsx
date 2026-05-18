@@ -4,7 +4,10 @@ import Reveal from "./reveal";
 export default function SkillsSection() {
   return (
     <Reveal>
-      <section id="skills" className="mx-auto max-w-6xl px-6 py-20">
+      <section
+  id="skills"
+  className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
+>
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400 dark:text-cyan-300">
           Tech Stack
         </p>
