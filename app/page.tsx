@@ -1,65 +1,136 @@
-import Image from "next/image";
+export default function PortfolioHome() {
+  const projects = [
+    {
+      title: "TBC Internet Banking Clone",
+      stack: "Next.js • React • TypeScript • Tailwind CSS",
+      description:
+        "A banking-style dashboard with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
+      link: "https://github.com/GogaDanelia06/tbc-web",
+    },
+    {
+      title: "Job Application Tracker",
+      stack: "Next.js • React • TypeScript • MongoDB",
+      description:
+        "A kanban-style job tracking platform with authentication, dashboard functionality, responsive UI, and dynamic workflows.",
+      link: "https://github.com/GogaDanelia06",
+    },
+  ];
 
-export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="min-h-screen bg-slate-950 text-white">
+      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16">
+        <nav className="mb-20 flex items-center justify-between">
+          <h2 className="text-xl font-bold tracking-tight">Goga Danelia</h2>
+          <div className="flex gap-5 text-sm text-slate-300">
+            <a href="#projects" className="hover:text-white">Projects</a>
+            <a href="#skills" className="hover:text-white">Skills</a>
+            <a href="mailto:daneliagoga6@gmail.com" className="hover:text-white">Contact</a>
+          </div>
+        </nav>
+
+        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              Full-Stack Developer
+            </p>
+            <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-7xl">
+              Building modern web apps with Next.js, React and TypeScript.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+              I create responsive dashboards, authentication flows, multilingual interfaces,
+              and performance-focused web applications with clean component architecture.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                className="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
+              >
+                View Projects
+              </a>
+              <a
+                href="https://github.com/GogaDanelia06"
+                target="_blank"
+                className="rounded-2xl border border-slate-700 px-6 py-3 font-semibold text-slate-200 transition hover:border-cyan-400 hover:text-white"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-2xl">
+            <h3 className="text-xl font-bold">Available for</h3>
+            <div className="mt-5 space-y-3 text-slate-300">
+              <p>• React / Next.js websites</p>
+              <p>• Dashboards and admin panels</p>
+              <p>• Responsive UI development</p>
+              <p>• API integration</p>
+              <p>• Frontend bug fixing</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="border-y border-slate-800 bg-slate-900/40 py-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-3xl font-bold">Skills</h2>
+          <div className="mt-8 flex flex-wrap gap-3">
+            {[
+              "Next.js",
+              "React",
+              "TypeScript",
+              "JavaScript",
+              "Tailwind CSS",
+              "Angular",
+              "MongoDB",
+              "MySQL",
+              "API Integration",
+              "Responsive Design",
+              "Authentication",
+              "UI/UX",
+            ].map((skill) => (
+              <span key={skill} className="rounded-full border border-slate-700 px-4 py-2 text-slate-300">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-bold">Featured Projects</h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-2">
+          {projects.map((project) => (
+            <article key={project.title} className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
+              <p className="mb-3 text-sm font-medium text-cyan-400">{project.stack}</p>
+              <h3 className="text-2xl font-bold">{project.title}</h3>
+              <p className="mt-4 leading-7 text-slate-300">{project.description}</p>
+              <a
+                href={project.link}
+                target="_blank"
+                className="mt-6 inline-block font-semibold text-cyan-400 hover:text-cyan-300"
+              >
+                View Project →
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="rounded-3xl bg-cyan-400 p-8 text-slate-950 md:p-10">
+          <h2 className="text-3xl font-bold">Let’s build something modern.</h2>
+          <p className="mt-3 max-w-2xl">
+            Available for React, Next.js, dashboard, admin panel, and responsive frontend projects.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:daneliagoga6@gmail.com"
+            className="mt-6 inline-block rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Contact Me
           </a>
         </div>
-      </main>
-    </div>
+      </section>
+    </main>
   );
 }
