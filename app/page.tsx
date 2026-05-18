@@ -1,22 +1,32 @@
+import Image from "next/image";
+
 const projects = [
   {
     title: "TBC Internet Banking Clone",
     type: "Banking Dashboard",
     stack: "Next.js • React • TypeScript • Tailwind CSS",
+    images: [
+      "/TBC/1.png",
+      "/TBC/2.png",
+      "/TBC/3.png",
+      "/TBC/4.png",
+      "/TBC/5.png",
+      "/TBC/6.png",
+      "/TBC/7.png",
+      "/TBC/8.png",
+      "/TBC/9.png",
+    ],
     description:
       "Production-style banking dashboard inspired by TBC Bank with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
-    highlights: ["Authentication UI", "Transfers", "Multilingual", "Dark / Light mode"],
+    highlights: [
+      "Authentication UI",
+      "Transfers",
+      "Multilingual",
+      "Dark / Light Mode",
+      "Dashboard",
+      "Reusable Components",
+    ],
     github: "https://github.com/GogaDanelia06/tbc-web",
-    live: "#",
-  },
-  {
-    title: "Job Application Tracker",
-    type: "Productivity Dashboard",
-    stack: "Next.js • React • TypeScript • MongoDB",
-    description:
-      "Kanban-style job tracking platform with authentication, dashboard functionality, responsive UI, and dynamic workflow management.",
-    highlights: ["Kanban workflow", "Auth", "Dashboard", "Responsive UI"],
-    github: "https://github.com/GogaDanelia06",
     live: "#",
   },
 ];
@@ -69,11 +79,20 @@ export default function PortfolioHome() {
             <a href="#" className="text-lg font-bold tracking-tight">
               Goga Danelia
             </a>
+
             <div className="hidden gap-6 text-sm text-slate-300 md:flex">
-              <a href="#projects" className="hover:text-cyan-300">Projects</a>
-              <a href="#experience" className="hover:text-cyan-300">Experience</a>
-              <a href="#skills" className="hover:text-cyan-300">Skills</a>
-              <a href="#contact" className="hover:text-cyan-300">Contact</a>
+              <a href="#projects" className="hover:text-cyan-300">
+                Projects
+              </a>
+              <a href="#experience" className="hover:text-cyan-300">
+                Experience
+              </a>
+              <a href="#skills" className="hover:text-cyan-300">
+                Skills
+              </a>
+              <a href="#contact" className="hover:text-cyan-300">
+                Contact
+              </a>
             </div>
           </nav>
 
@@ -84,12 +103,14 @@ export default function PortfolioHome() {
               </div>
 
               <h1 className="max-w-4xl text-5xl font-black leading-[1.05] tracking-tight md:text-7xl">
-                I build modern dashboards and web apps that feel production-ready.
+                I build modern dashboards and web apps that feel
+                production-ready.
               </h1>
 
               <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-                I’m a developer focused on clean UI, responsive layouts, authentication flows,
-                scalable component architecture, and high-quality user experiences.
+                I’m a developer focused on clean UI, responsive layouts,
+                authentication flows, scalable component architecture, and
+                high-quality user experiences.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -99,6 +120,13 @@ export default function PortfolioHome() {
                 >
                   View My Work
                 </a>
+
+                <a
+                  href="#contact"
+                  className="rounded-2xl border border-white/15 px-6 py-3 font-bold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+                >
+                  Contact Me
+                </a>
               </div>
             </div>
 
@@ -106,6 +134,7 @@ export default function PortfolioHome() {
               <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
                 Available for
               </p>
+
               <div className="mt-6 grid gap-4">
                 {[
                   "React / Next.js websites",
@@ -114,7 +143,10 @@ export default function PortfolioHome() {
                   "Authentication screens",
                   "Frontend bug fixing",
                 ].map((item) => (
-                  <div key={item} className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-slate-200">
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-slate-200"
+                  >
                     {item}
                   </div>
                 ))}
@@ -132,7 +164,10 @@ export default function PortfolioHome() {
             ["2", "Strong Portfolio Apps"],
             ["100%", "Responsive Focus"],
           ].map(([number, label]) => (
-            <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+            <div
+              key={label}
+              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+            >
               <h3 className="text-4xl font-black text-cyan-300">{number}</h3>
               <p className="mt-2 text-slate-300">{label}</p>
             </div>
@@ -143,83 +178,119 @@ export default function PortfolioHome() {
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Portfolio</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
+              Portfolio
+            </p>
             <h2 className="mt-3 text-4xl font-black">Featured Projects</h2>
           </div>
+
           <p className="max-w-xl text-slate-300">
-            My strongest projects focus on dashboards, business flows, responsive UI,
-            authentication, and scalable frontend architecture.
+            My strongest projects focus on dashboards, business flows,
+            responsive UI, authentication, and scalable frontend architecture.
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-8">
           {projects.map((project) => (
-            <article key={project.title} className="group rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-xl transition hover:-translate-y-1 hover:border-cyan-400/40">
-              <div className="mb-5 flex items-center justify-between gap-4">
-                <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-300">
-                  {project.type}
-                </span>
-                <span className="text-sm text-slate-400">{project.stack}</span>
-              </div>
+            <article
+              key={project.title}
+              className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-xl"
+            >
+              <div className="mb-5 flex flex-col justify-between gap-4 md:flex-row md:items-center">
+                <div>
+                  <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-300">
+                    {project.type}
+                  </span>
 
-              <div className="mb-6 h-48 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/40 p-5">
-                <div className="h-full rounded-2xl border border-white/10 bg-black/20 p-4">
-                  <div className="mb-4 flex gap-2">
-                    <span className="h-3 w-3 rounded-full bg-red-400" />
-                    <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                    <span className="h-3 w-3 rounded-full bg-green-400" />
-                  </div>
-                  <div className="space-y-3">
-                    <div className="h-4 w-2/3 rounded bg-white/20" />
-                    <div className="h-4 w-1/2 rounded bg-cyan-400/30" />
-                    <div className="grid grid-cols-3 gap-3 pt-4">
-                      <div className="h-16 rounded-xl bg-white/10" />
-                      <div className="h-16 rounded-xl bg-white/10" />
-                      <div className="h-16 rounded-xl bg-white/10" />
-                    </div>
-                  </div>
+                  <h3 className="mt-4 text-3xl font-black">{project.title}</h3>
+
+                  <p className="mt-2 text-sm text-slate-400">
+                    {project.stack}
+                  </p>
+                </div>
+
+                <div className="flex gap-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    className="rounded-2xl border border-white/10 px-5 py-3 font-bold text-cyan-300 transition hover:border-cyan-400"
+                  >
+                    GitHub
+                  </a>
+
+                  <a
+                    href={project.live}
+                    className="rounded-2xl bg-cyan-400 px-5 py-3 font-bold text-slate-950 transition hover:bg-cyan-300"
+                  >
+                    Live Demo
+                  </a>
                 </div>
               </div>
 
-              <h3 className="text-2xl font-bold">{project.title}</h3>
-              <p className="mt-4 leading-7 text-slate-300">{project.description}</p>
+              <p className="max-w-4xl leading-7 text-slate-300">
+                {project.description}
+              </p>
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.highlights.map((highlight) => (
-                  <span key={highlight} className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300">
+                  <span
+                    key={highlight}
+                    className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300"
+                  >
                     {highlight}
                   </span>
                 ))}
               </div>
 
-              <div className="mt-6 flex gap-4">
-                <a href={project.github} target="_blank" className="font-bold text-cyan-300 hover:text-cyan-200">
-                  GitHub →
-                </a>
-                <a href={project.live} className="font-bold text-slate-300 hover:text-white">
-                  Live Demo →
-                </a>
+              <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                {project.images.map((image, index) => (
+                  <div
+                    key={image}
+                    className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-950"
+                  >
+                    <Image
+                      src={image}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      width={1400}
+                      height={850}
+                      className="h-[230px] w-full object-cover object-top transition duration-500 group-hover:scale-[1.04]"
+                      priority={index === 0}
+                    />
+                  </div>
+                ))}
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section id="experience" className="border-y border-white/10 bg-white/[0.03] py-20">
+      <section
+        id="experience"
+        className="border-y border-white/10 bg-white/[0.03] py-20"
+      >
         <div className="mx-auto max-w-6xl px-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Experience</p>
-          <h2 className="mt-3 text-4xl font-black">Professional Background</h2>
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
+            Experience
+          </p>
+          <h2 className="mt-3 text-4xl font-black">
+            Professional Background
+          </h2>
 
           <div className="mt-10 grid gap-5">
             {experience.map((item) => (
-              <div key={item.role + item.company} className="rounded-3xl border border-white/10 bg-slate-950/50 p-6">
+              <div
+                key={item.role + item.company}
+                className="rounded-3xl border border-white/10 bg-slate-950/50 p-6"
+              >
                 <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
                   <div>
                     <h3 className="text-xl font-bold">{item.role}</h3>
                     <p className="mt-1 text-cyan-300">{item.company}</p>
                   </div>
+
                   <p className="text-sm text-slate-400">{item.date}</p>
                 </div>
+
                 <p className="mt-4 leading-7 text-slate-300">{item.text}</p>
               </div>
             ))}
@@ -228,71 +299,77 @@ export default function PortfolioHome() {
       </section>
 
       <section id="skills" className="mx-auto max-w-6xl px-6 py-20">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Tech Stack</p>
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
+          Tech Stack
+        </p>
+
         <h2 className="mt-3 text-4xl font-black">Skills I Use</h2>
+
         <div className="mt-8 flex flex-wrap gap-3">
           {skills.map((skill) => (
-            <span key={skill} className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-slate-200">
+            <span
+              key={skill}
+              className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-slate-200"
+            >
               {skill}
             </span>
           ))}
         </div>
       </section>
 
-<section id="contact" className="mx-auto max-w-6xl px-6 pb-20">
-  <div className="rounded-[2rem] bg-cyan-400 p-8 text-slate-950 md:p-12">
-    <p className="font-bold uppercase tracking-[0.2em]">
-      Let’s work together
-    </p>
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="rounded-[2rem] bg-cyan-400 p-8 text-slate-950 md:p-12">
+          <p className="font-bold uppercase tracking-[0.2em]">
+            Let’s work together
+          </p>
 
-    <h2 className="mt-3 max-w-3xl text-4xl font-black md:text-5xl">
-      Need a modern React or Next.js developer for your project?
-    </h2>
+          <h2 className="mt-3 max-w-3xl text-4xl font-black md:text-5xl">
+            Need a modern React or Next.js developer for your project?
+          </h2>
 
-    <p className="mt-4 max-w-2xl text-lg">
-      I can help with dashboards, responsive websites,
-      frontend fixes, authentication UI, API integration,
-      and production-ready interfaces.
-    </p>
+          <p className="mt-4 max-w-2xl text-lg">
+            I can help with dashboards, responsive websites, frontend fixes,
+            authentication UI, API integration, and production-ready interfaces.
+          </p>
 
-    <div className="mt-8 flex flex-wrap gap-4">
-      <a
-        href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
-        target="_blank"
-        className="rounded-2xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-900"
-      >
-        daneliagoga6@gmail.com
-      </a>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
+              target="_blank"
+              className="rounded-2xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-900"
+            >
+              daneliagoga6@gmail.com
+            </a>
 
-      <a
-        href="tel:+995595560635"
-        className="rounded-2xl border border-slate-950/20 px-6 py-3 font-bold transition hover:bg-slate-950/10"
-      >
-        +995 595 56 06 35
-      </a>
-    </div>
+            <a
+              href="tel:+995595560635"
+              className="rounded-2xl border border-slate-950/20 px-6 py-3 font-bold transition hover:bg-slate-950/10"
+            >
+              +995 595 56 06 35
+            </a>
+          </div>
 
-    <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-medium text-slate-900/80">
-      <a
-        href="https://github.com/GogaDanelia06"
-        target="_blank"
-        className="transition hover:text-slate-950"
-      >
-        GitHub
-      </a>
+          <div className="mt-8 flex flex-wrap items-center gap-6 text-sm font-medium text-slate-900/80">
+            <a
+              href="https://github.com/GogaDanelia06"
+              target="_blank"
+              className="transition hover:text-slate-950"
+            >
+              GitHub
+            </a>
 
-      <a
-        href="https://www.linkedin.com/in/goga-danelia-91110a209"
-        target="_blank"
-        className="transition hover:text-slate-950"
-      >
-        LinkedIn
-      </a>
+            <a
+              href="https://www.linkedin.com/in/goga-danelia-91110a209"
+              target="_blank"
+              className="transition hover:text-slate-950"
+            >
+              LinkedIn
+            </a>
 
-      <span>Tbilisi, Georgia</span>
-    </div>
-  </div>
-</section>
+            <span>Tbilisi, Georgia</span>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
