@@ -1,134 +1,268 @@
+const projects = [
+  {
+    title: "TBC Internet Banking Clone",
+    type: "Banking Dashboard",
+    stack: "Next.js • React • TypeScript • Tailwind CSS",
+    description:
+      "Production-style banking dashboard inspired by TBC Bank with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
+    highlights: ["Authentication UI", "Transfers", "Multilingual", "Dark / Light mode"],
+    github: "https://github.com/GogaDanelia06/tbc-web",
+    live: "#",
+  },
+  {
+    title: "Job Application Tracker",
+    type: "Productivity Dashboard",
+    stack: "Next.js • React • TypeScript • MongoDB",
+    description:
+      "Kanban-style job tracking platform with authentication, dashboard functionality, responsive UI, and dynamic workflow management.",
+    highlights: ["Kanban workflow", "Auth", "Dashboard", "Responsive UI"],
+    github: "https://github.com/GogaDanelia06",
+    live: "#",
+  },
+];
+
+const skills = [
+  "Next.js",
+  "React",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind CSS",
+  "Angular",
+  "MongoDB",
+  "MySQL",
+  "Authentication",
+  "API Integration",
+  "Responsive Design",
+  "UI/UX",
+];
+
+const experience = [
+  {
+    role: "Full-Stack Developer",
+    company: "Mainstream / Kinotechy",
+    date: "2026 — Present",
+    text: "Developing modern web applications, dashboards, responsive interfaces, and production-focused frontend architecture.",
+  },
+  {
+    role: "Freelance Full-Stack Developer",
+    company: "Remote / Contract Projects",
+    date: "2023 — Present",
+    text: "Building business websites, dashboards, and custom web applications using React, Next.js, and modern frontend tools.",
+  },
+  {
+    role: "Front-End Developer",
+    company: "LEPL Levan Samkharauli National Forensics Bureau",
+    date: "2024 — 2025",
+    text: "Developed frontend applications using Angular and JavaScript, improving usability and internal workflows.",
+  },
+];
+
 export default function PortfolioHome() {
-  const projects = [
-    {
-      title: "TBC Internet Banking Clone",
-      stack: "Next.js • React • TypeScript • Tailwind CSS",
-      description:
-        "A banking-style dashboard with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
-      link: "https://github.com/GogaDanelia06/tbc-web",
-    },
-    {
-      title: "Job Application Tracker",
-      stack: "Next.js • React • TypeScript • MongoDB",
-      description:
-        "A kanban-style job tracking platform with authentication, dashboard functionality, responsive UI, and dynamic workflows.",
-      link: "https://github.com/GogaDanelia06",
-    },
-  ];
-
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
-      <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 py-16">
-        <nav className="mb-20 flex items-center justify-between">
-          <h2 className="text-xl font-bold tracking-tight">Goga Danelia</h2>
-          <div className="flex gap-5 text-sm text-slate-300">
-            <a href="#projects" className="hover:text-white">Projects</a>
-            <a href="#skills" className="hover:text-white">Skills</a>
-            <a href="mailto:daneliagoga6@gmail.com" className="hover:text-white">Contact</a>
-          </div>
-        </nav>
+    <main className="min-h-screen bg-[#050816] text-white">
+      <section className="relative overflow-hidden">
+        <div className="absolute left-[-120px] top-[-120px] h-80 w-80 rounded-full bg-cyan-500/20 blur-3xl" />
+        <div className="absolute bottom-[-160px] right-[-100px] h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
 
-        <div className="grid items-center gap-12 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Full-Stack Developer
-            </p>
-            <h1 className="max-w-3xl text-5xl font-bold leading-tight tracking-tight md:text-7xl">
-              Building modern web apps with Next.js, React and TypeScript.
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-              I create responsive dashboards, authentication flows, multilingual interfaces,
-              and performance-focused web applications with clean component architecture.
-            </p>
-
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                className="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300"
-              >
-                View Projects
-              </a>
-              <a
-                href="https://github.com/GogaDanelia06"
-                target="_blank"
-                className="rounded-2xl border border-slate-700 px-6 py-3 font-semibold text-slate-200 transition hover:border-cyan-400 hover:text-white"
-              >
-                GitHub
-              </a>
+        <div className="relative mx-auto max-w-6xl px-6 py-8">
+          <nav className="flex items-center justify-between rounded-3xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur">
+            <a href="#" className="text-lg font-bold tracking-tight">
+              Goga Danelia
+            </a>
+            <div className="hidden gap-6 text-sm text-slate-300 md:flex">
+              <a href="#projects" className="hover:text-cyan-300">Projects</a>
+              <a href="#experience" className="hover:text-cyan-300">Experience</a>
+              <a href="#skills" className="hover:text-cyan-300">Skills</a>
+              <a href="#contact" className="hover:text-cyan-300">Contact</a>
             </div>
-          </div>
+          </nav>
 
-          <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-2xl">
-            <h3 className="text-xl font-bold">Available for</h3>
-            <div className="mt-5 space-y-3 text-slate-300">
-              <p>• React / Next.js websites</p>
-              <p>• Dashboards and admin panels</p>
-              <p>• Responsive UI development</p>
-              <p>• API integration</p>
-              <p>• Frontend bug fixing</p>
+          <div className="grid min-h-[82vh] items-center gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr]">
+            <div>
+              <div className="mb-5 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-300">
+                Full-Stack Developer • Next.js • React • TypeScript
+              </div>
+
+              <h1 className="max-w-4xl text-5xl font-black leading-[1.05] tracking-tight md:text-7xl">
+                I build modern dashboards and web apps that feel production-ready.
+              </h1>
+
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                I’m a developer focused on clean UI, responsive layouts, authentication flows,
+                scalable component architecture, and high-quality user experiences.
+              </p>
+
+              <div className="mt-8 flex flex-wrap gap-4">
+                <a
+                  href="#projects"
+                  className="rounded-2xl bg-cyan-400 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:bg-cyan-300"
+                >
+                  View My Work
+                </a>
+                <a
+                  href="mailto:daneliagoga6@gmail.com"
+                  className="rounded-2xl border border-white/15 px-6 py-3 font-bold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-6 shadow-2xl backdrop-blur">
+              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
+                Available for
+              </p>
+              <div className="mt-6 grid gap-4">
+                {[
+                  "React / Next.js websites",
+                  "Dashboards & admin panels",
+                  "Responsive UI development",
+                  "Authentication screens",
+                  "Frontend bug fixing",
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-white/10 bg-slate-950/50 p-4 text-slate-200">
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="skills" className="border-y border-slate-800 bg-slate-900/40 py-16">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-3xl font-bold">Skills</h2>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {[
-              "Next.js",
-              "React",
-              "TypeScript",
-              "JavaScript",
-              "Tailwind CSS",
-              "Angular",
-              "MongoDB",
-              "MySQL",
-              "API Integration",
-              "Responsive Design",
-              "Authentication",
-              "UI/UX",
-            ].map((skill) => (
-              <span key={skill} className="rounded-full border border-slate-700 px-4 py-2 text-slate-300">
-                {skill}
-              </span>
-            ))}
-          </div>
+      <section className="border-y border-white/10 bg-white/[0.03] py-10">
+        <div className="mx-auto grid max-w-6xl gap-5 px-6 md:grid-cols-4">
+          {[
+            ["3+", "Years Experience"],
+            ["10+", "Completed Projects"],
+            ["2", "Strong Portfolio Apps"],
+            ["100%", "Responsive Focus"],
+          ].map(([number, label]) => (
+            <div key={label} className="rounded-3xl border border-white/10 bg-white/[0.04] p-6">
+              <h3 className="text-4xl font-black text-cyan-300">{number}</h3>
+              <p className="mt-2 text-slate-300">{label}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
-        <h2 className="text-3xl font-bold">Featured Projects</h2>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Portfolio</p>
+            <h2 className="mt-3 text-4xl font-black">Featured Projects</h2>
+          </div>
+          <p className="max-w-xl text-slate-300">
+            My strongest projects focus on dashboards, business flows, responsive UI,
+            authentication, and scalable frontend architecture.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
           {projects.map((project) => (
-            <article key={project.title} className="rounded-3xl border border-slate-800 bg-slate-900 p-6 shadow-xl">
-              <p className="mb-3 text-sm font-medium text-cyan-400">{project.stack}</p>
+            <article key={project.title} className="group rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 shadow-xl transition hover:-translate-y-1 hover:border-cyan-400/40">
+              <div className="mb-5 flex items-center justify-between gap-4">
+                <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-300">
+                  {project.type}
+                </span>
+                <span className="text-sm text-slate-400">{project.stack}</span>
+              </div>
+
+              <div className="mb-6 h-48 rounded-3xl border border-white/10 bg-gradient-to-br from-slate-900 via-slate-950 to-cyan-950/40 p-5">
+                <div className="h-full rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div className="mb-4 flex gap-2">
+                    <span className="h-3 w-3 rounded-full bg-red-400" />
+                    <span className="h-3 w-3 rounded-full bg-yellow-400" />
+                    <span className="h-3 w-3 rounded-full bg-green-400" />
+                  </div>
+                  <div className="space-y-3">
+                    <div className="h-4 w-2/3 rounded bg-white/20" />
+                    <div className="h-4 w-1/2 rounded bg-cyan-400/30" />
+                    <div className="grid grid-cols-3 gap-3 pt-4">
+                      <div className="h-16 rounded-xl bg-white/10" />
+                      <div className="h-16 rounded-xl bg-white/10" />
+                      <div className="h-16 rounded-xl bg-white/10" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <h3 className="text-2xl font-bold">{project.title}</h3>
               <p className="mt-4 leading-7 text-slate-300">{project.description}</p>
-              <a
-                href={project.link}
-                target="_blank"
-                className="mt-6 inline-block font-semibold text-cyan-400 hover:text-cyan-300"
-              >
-                View Project →
-              </a>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {project.highlights.map((highlight) => (
+                  <span key={highlight} className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300">
+                    {highlight}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 flex gap-4">
+                <a href={project.github} target="_blank" className="font-bold text-cyan-300 hover:text-cyan-200">
+                  GitHub →
+                </a>
+                <a href={project.live} className="font-bold text-slate-300 hover:text-white">
+                  Live Demo →
+                </a>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-20">
-        <div className="rounded-3xl bg-cyan-400 p-8 text-slate-950 md:p-10">
-          <h2 className="text-3xl font-bold">Let’s build something modern.</h2>
-          <p className="mt-3 max-w-2xl">
-            Available for React, Next.js, dashboard, admin panel, and responsive frontend projects.
+      <section id="experience" className="border-y border-white/10 bg-white/[0.03] py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Experience</p>
+          <h2 className="mt-3 text-4xl font-black">Professional Background</h2>
+
+          <div className="mt-10 grid gap-5">
+            {experience.map((item) => (
+              <div key={item.role + item.company} className="rounded-3xl border border-white/10 bg-slate-950/50 p-6">
+                <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
+                  <div>
+                    <h3 className="text-xl font-bold">{item.role}</h3>
+                    <p className="mt-1 text-cyan-300">{item.company}</p>
+                  </div>
+                  <p className="text-sm text-slate-400">{item.date}</p>
+                </div>
+                <p className="mt-4 leading-7 text-slate-300">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="mx-auto max-w-6xl px-6 py-20">
+        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">Tech Stack</p>
+        <h2 className="mt-3 text-4xl font-black">Skills I Use</h2>
+        <div className="mt-8 flex flex-wrap gap-3">
+          {skills.map((skill) => (
+            <span key={skill} className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-slate-200">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="mx-auto max-w-6xl px-6 pb-20">
+        <div className="rounded-[2rem] bg-cyan-400 p-8 text-slate-950 md:p-12">
+          <p className="font-bold uppercase tracking-[0.2em]">Let’s work together</p>
+          <h2 className="mt-3 max-w-3xl text-4xl font-black md:text-5xl">
+            Need a modern React or Next.js developer for your project?
+          </h2>
+          <p className="mt-4 max-w-2xl text-lg">
+            I can help with dashboards, responsive websites, frontend fixes, authentication UI,
+            API integration, and production-ready interfaces.
           </p>
-          <a
-            href="mailto:daneliagoga6@gmail.com"
-            className="mt-6 inline-block rounded-2xl bg-slate-950 px-6 py-3 font-semibold text-white"
-          >
-            Contact Me
-          </a>
+          <div className="mt-8 flex flex-wrap gap-4">
+            <a href="mailto:daneliagoga6@gmail.com" className="rounded-2xl bg-slate-950 px-6 py-3 font-bold text-white">
+              Email Me
+            </a>
+            <a href="https://github.com/GogaDanelia06" target="_blank" className="rounded-2xl border border-slate-950/20 px-6 py-3 font-bold">
+              GitHub
+            </a>
+          </div>
         </div>
       </section>
     </main>
