@@ -20,7 +20,7 @@ export default function FloatingActions() {
       <a
         href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
         target="_blank"
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-400 text-slate-950 shadow-lg shadow-cyan-400/30 transition hover:scale-110"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 text-slate-950 shadow-lg shadow-cyan-400/30 transition hover:scale-110"
       >
         <Mail className="h-5 w-5" />
       </a>
@@ -28,7 +28,7 @@ export default function FloatingActions() {
       {showTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-slate-900 text-white shadow-lg transition hover:scale-110 hover:border-cyan-400"
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-border)] bg-slate-900 text-slate-300 shadow-lg transition hover:scale-110 hover:border-cyan-400"
         >
           <ArrowUp className="h-5 w-5" />
         </button>

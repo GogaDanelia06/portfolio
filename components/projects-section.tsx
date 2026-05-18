@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { projects } from "@/data/portfolio-data";
 import ImageModal from "./image-modal";
+import Reveal from "./reveal";
 
 export default function ProjectsSection() {
   const [activeProject, setActiveProject] = useState(0);
@@ -11,6 +12,8 @@ export default function ProjectsSection() {
   const project = projects[activeProject];
 
   return (
+   <Reveal>
+
     <section id="projects" className="mx-auto max-w-6xl px-6 py-20">
       <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div>
@@ -20,7 +23,7 @@ export default function ProjectsSection() {
           <h2 className="mt-3 text-4xl font-black">Featured Projects</h2>
         </div>
 
-        <p className="max-w-xl text-slate-300">
+        <p className="max-w-xl text-[var(--color-muted)]">
           Choose a project below to view screenshots, stack, features, GitHub,
           and live demo.
         </p>
@@ -30,7 +33,7 @@ export default function ProjectsSection() {
         <ProjectTabs activeProject={activeProject} setActiveProject={setActiveProject} />
         <ProjectHeader project={project} />
 
-        <p className="max-w-4xl leading-7 text-slate-300">
+        <p className="max-w-4xl leading-7 text-[var(--color-muted)]">
           {project.description}
         </p>
 
@@ -38,7 +41,7 @@ export default function ProjectsSection() {
           {project.highlights.map((highlight) => (
             <span
               key={highlight}
-              className="rounded-full border border-white/10 px-3 py-1 text-sm text-slate-300"
+              className="rounded-full border border-[var(--color-border)] px-3 py-1 text-sm text-[var(--color-muted)]"
             >
               {highlight}
             </span>
@@ -50,7 +53,7 @@ export default function ProjectsSection() {
             <button
               key={image}
               onClick={() => setSelectedImage(image)}
-              className="group overflow-hidden rounded-3xl border border-white/10 bg-slate-950 transition hover:border-cyan-400"
+              className="group overflow-hidden rounded-3xl border border-[var(--color-border)] bg-slate-950 transition hover:border-cyan-400"
             >
               <Image
                 src={image}
@@ -67,6 +70,7 @@ export default function ProjectsSection() {
 
       <ImageModal image={selectedImage} onClose={() => setSelectedImage(null)} />
     </section>
+     </Reveal>
   );
 }
 
@@ -85,8 +89,8 @@ function ProjectTabs({
           onClick={() => setActiveProject(index)}
           className={`rounded-2xl px-5 py-3 text-sm font-bold transition ${
             activeProject === index
-              ? "bg-cyan-400 text-slate-950"
-              : "border border-white/10 bg-slate-950/40 text-slate-300 hover:border-cyan-400 hover:text-white"
+              ? "bg-gradient-to-r from-cyan-400 to-cyan-300 text-slate-950"
+              : "border border-[var(--color-border)] bg-slate-950/40 text-[var(--color-muted)] hover:border-cyan-400 hover:text-slate-300"
           }`}
         >
           {item.title}
@@ -100,7 +104,7 @@ function ProjectHeader({ project }: { project: (typeof projects)[number] }) {
   return (
     <div className="mb-6 flex flex-col justify-between gap-5 md:flex-row md:items-start">
       <div>
-        <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-sm font-semibold text-cyan-300">
+        <span className="rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300/10 px-3 py-1 text-sm font-semibold text-cyan-300">
           {project.type}
         </span>
 
@@ -112,14 +116,14 @@ function ProjectHeader({ project }: { project: (typeof projects)[number] }) {
         <a
           href={project.github}
           target="_blank"
-          className="rounded-2xl border border-white/10 px-5 py-3 font-bold text-cyan-300 transition hover:border-cyan-400"
+          className="rounded-2xl border border-[var(--color-border)] px-5 py-3 font-bold text-cyan-300 transition hover:border-cyan-400"
         >
           GitHub
         </a>
 
         <a
           href={project.live}
-          className="rounded-2xl bg-cyan-400 px-5 py-3 font-bold text-slate-950 transition hover:bg-cyan-300"
+          className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-5 py-3 font-bold text-slate-950 transition hover:bg-cyan-300"
         >
           Live Demo
         </a>

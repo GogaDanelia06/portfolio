@@ -13,12 +13,12 @@ export default function ImageModal({ image, onClose }: Props) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6">
       <button
         onClick={onClose}
-        className="absolute right-6 top-6 rounded-full border border-white/10 bg-white/10 p-3 text-white transition hover:bg-white/20"
+        className="absolute right-6 top-6 rounded-full border border-[var(--color-border)] bg-white/10 p-3 text-slate-300 transition hover:bg-white/20"
       >
         <X className="h-6 w-6" />
       </button>
 
-      <div className="max-h-[95vh] max-w-7xl overflow-hidden rounded-3xl border border-white/10">
+      <div className="max-h-[95vh] max-w-7xl overflow-hidden rounded-3xl border border-[var(--color-border)]">
         <Image
           src={image}
           alt="Project screenshot preview"

@@ -1,5 +1,8 @@
+import Reveal from "./reveal";
+
 export default function AboutSection() {
   return (
+    <Reveal>
     <section className="mx-auto max-w-6xl px-6 py-20">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
@@ -11,7 +14,7 @@ export default function AboutSection() {
           </h2>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 text-slate-300">
+        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 text-[var(--color-muted)]">
           <p className="leading-8">
             I’m Goga Danelia, a Full-Stack Developer focused on building modern
             web applications with Next.js, React, TypeScript, and Tailwind CSS.
@@ -27,5 +30,6 @@ export default function AboutSection() {
         </div>
       </div>
     </section>
+    </Reveal>
   );
 }

@@ -1,3 +1,5 @@
+import Reveal from "./reveal";
+
 const services = [
   "Dashboard & Admin Panel Development",
   "React / Next.js Websites",
@@ -9,7 +11,8 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section className="border-y border-white/10 bg-white/[0.03] py-20">
+   <Reveal>
+    <section className="border-y border-[var(--color-border)] bg-white/[0.03] py-20">
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
           What I Do
@@ -23,7 +26,7 @@ export default function ServicesSection() {
           {services.map((service) => (
             <div
               key={service}
-              className="rounded-3xl border border-white/10 bg-slate-950/50 p-6 transition hover:border-cyan-400/50"
+              className="rounded-3xl border border-[var(--color-border)] bg-slate-950/50 p-6 transition hover:border-cyan-400/50"
             >
               <p className="text-lg font-bold">{service}</p>
             </div>
@@ -31,5 +34,6 @@ export default function ServicesSection() {
         </div>
       </div>
     </section>
+     </Reveal>
   );
 }

@@ -10,7 +10,7 @@ import StatsSection from "@/components/stats-section";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050816] text-white">
+    <main className="min-h-screen bg-[var(--color-background)] text-slate-300">
       <HeroSection />
       <StatsSection />
       <AboutSection />

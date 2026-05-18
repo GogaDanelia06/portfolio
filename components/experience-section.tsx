@@ -1,10 +1,12 @@
 import { experience } from "@/data/portfolio-data";
+import Reveal from "./reveal";
 
 export default function ExperienceSection() {
   return (
+    <Reveal>
     <section
       id="experience"
-      className="border-y border-white/10 bg-white/[0.03] py-20"
+      className="border-y border-[var(--color-border)] bg-white/[0.03] py-20"
     >
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
@@ -16,7 +18,7 @@ export default function ExperienceSection() {
           {experience.map((item) => (
             <div
               key={item.role + item.company}
-              className="rounded-3xl border border-white/10 bg-slate-950/50 p-6"
+              className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 transition duration-300 hover:bg-white/[0.07] hover:shadow-2xl hover:shadow-cyan-500/10"
             >
               <div className="flex flex-col justify-between gap-2 md:flex-row md:items-center">
                 <div>
@@ -27,11 +29,12 @@ export default function ExperienceSection() {
                 <p className="text-sm text-slate-400">{item.date}</p>
               </div>
 
-              <p className="mt-4 leading-7 text-slate-300">{item.text}</p>
+              <p className="mt-4 leading-7 text-[var(--color-muted)]">{item.text}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
+    </Reveal>
   );
 }

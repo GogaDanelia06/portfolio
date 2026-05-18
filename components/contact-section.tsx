@@ -1,7 +1,7 @@
 export default function ContactSection() {
   return (
     <section id="contact" className="mx-auto max-w-6xl px-6 pb-20">
-      <div className="rounded-[2rem] bg-cyan-400 p-8 text-slate-950 md:p-12">
+      <div className="rounded-[2rem] bg-gradient-to-r from-cyan-400 to-cyan-300 p-8 text-slate-950 md:p-12">
         <p className="font-bold uppercase tracking-[0.2em]">
           Let’s work together
         </p>
@@ -19,7 +19,7 @@ export default function ContactSection() {
           <a
             href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
             target="_blank"
-            className="rounded-2xl bg-slate-950 px-6 py-3 font-bold text-white transition hover:bg-slate-900"
+            className="rounded-2xl bg-slate-950 px-6 py-3 font-bold text-slate-300 transition hover:bg-slate-900"
           >
             daneliagoga6@gmail.com
           </a>

@@ -1,7 +1,9 @@
 import { skills } from "@/data/portfolio-data";
+import Reveal from "./reveal";
 
 export default function SkillsSection() {
   return (
+     <Reveal>
     <section id="skills" className="mx-auto max-w-6xl px-6 py-20">
       <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
         Tech Stack
@@ -13,12 +15,13 @@ export default function SkillsSection() {
         {skills.map((skill) => (
           <span
             key={skill}
-            className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-slate-200"
+            className="rounded-full border border-[var(--color-border)] bg-white/[0.04] px-5 py-3 text-slate-200"
           >
             {skill}
           </span>
         ))}
       </div>
     </section>
+     </Reveal>
   );
 }
