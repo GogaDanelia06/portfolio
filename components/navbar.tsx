@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ThemeToggle from "./theme-toggle";
 
 const links = [
   { label: "Projects", href: "#projects" },
@@ -104,9 +105,7 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white">
-          ☀
-        </button>
+      <ThemeToggle />
       </div>
     </nav>
   );

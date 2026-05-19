@@ -18,9 +18,9 @@ export default function ProjectsSection() {
   return (
     <Reveal>
       <section
-  id="projects"
-  className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
->
+        id="projects"
+        className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
+      >
         <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400 dark:text-cyan-300">
@@ -54,22 +54,58 @@ export default function ProjectsSection() {
             >
               <ProjectHeader project={project} />
 
-              <p className="max-w-4xl leading-7 text-[var(--color-muted)]">
-                {project.description}
-              </p>
+              <div className="grid gap-5 lg:grid-cols-[1.2fr_0.8fr]">
+                <div>
+                  <p className="max-w-4xl leading-7 text-[var(--color-muted)]">
+                    {project.description}
+                  </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.highlights.map((highlight) => (
-                  <motion.span
-                    key={highlight}
-                    initial={{ opacity: 0, scale: 0.92 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.2 }}
-                    className="rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-1 text-sm font-medium text-[var(--color-muted)]"
-                  >
-                    {highlight}
-                  </motion.span>
-                ))}
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+                      <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+                        Focus
+                      </p>
+
+                      <p className="mt-3 leading-7 text-[var(--color-muted)]">
+                        Clean architecture, responsive UI, scalable
+                        components, polished UX, and production-style flows.
+                      </p>
+                    </div>
+
+                    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5">
+                      <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+                        Architecture
+                      </p>
+
+                      <p className="mt-3 leading-7 text-[var(--color-muted)]">
+                        Built using reusable React components, modular
+                        sections, smooth animations, and scalable frontend
+                        structure.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
+                  <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-400">
+                    Key Features
+                  </p>
+
+                  <div className="mt-5 flex flex-col gap-4">
+                    {project.highlights.map((highlight) => (
+                      <div
+                        key={highlight}
+                        className="flex items-center gap-3 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-strong)] px-4 py-3"
+                      >
+                        <div className="h-2.5 w-2.5 rounded-full bg-cyan-400" />
+
+                        <span className="font-medium text-[var(--color-text)]">
+                          {highlight}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               <div className="mt-8 grid max-h-[780px] gap-5 overflow-y-auto pr-2 md:grid-cols-2 lg:grid-cols-3">
