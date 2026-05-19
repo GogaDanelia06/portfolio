@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-goga-danelia.vercel.app"),
+  metadataBase: new URL(
+  "https://portfolio-one-delta-v6nldbrif7.vercel.app"
+),
 
   title: "Goga Danelia | Full-Stack Developer",
   description:
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
     title: "Goga Danelia | Full-Stack Developer",
     description:
       "Next.js, React, TypeScript, dashboards, authentication flows, and production-ready web applications.",
-    url: "https://portfolio-goga-danelia.vercel.app",
+   url: "https://portfolio-one-delta-v6nldbrif7.vercel.app",
     siteName: "Goga Danelia Portfolio",
     type: "website",
   },
