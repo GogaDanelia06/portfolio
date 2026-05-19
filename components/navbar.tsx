@@ -36,7 +36,9 @@ export default function Navbar() {
       let current = "";
 
       for (const link of links) {
-        const section = document.querySelector(link.href) as HTMLElement | null;
+        const section = document.querySelector(
+          link.href
+        ) as HTMLElement | null;
 
         if (!section) continue;
 
@@ -56,7 +58,9 @@ export default function Navbar() {
       handleScroll();
     }, 300);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       clearTimeout(timeout);
@@ -70,7 +74,10 @@ export default function Navbar() {
   ) => {
     event.preventDefault();
 
-    const section = document.querySelector(href) as HTMLElement | null;
+    const section = document.querySelector(
+      href
+    ) as HTMLElement | null;
+
     if (!section) return;
 
     setActive(href);
@@ -80,24 +87,32 @@ export default function Navbar() {
       behavior: "smooth",
     });
 
-    window.history.replaceState(null, "", window.location.pathname);
+    window.history.replaceState(
+      null,
+      "",
+      window.location.pathname
+    );
   };
 
   return (
-    <nav className="fixed left-1/2 top-3 z-50 w-[90%] max-w-5xl -translate-x-1/2 rounded-full border border-white/10 bg-[#0b1020]/80 px-4 py-3 backdrop-blur-xl">
-      <div className="flex items-center justify-between">
-        <div className="font-bold text-white">Goga Danelia</div>
+    <nav className="fixed left-1/2 top-3 z-50 w-[94%] max-w-5xl -translate-x-1/2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 backdrop-blur-xl md:top-4 md:px-4 md:py-3">
+      <div className="flex items-center justify-between gap-2">
+        <div className="hidden font-bold text-[var(--color-text)] sm:block">
+          Goga Danelia
+        </div>
 
-        <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1">
+        <div className="flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] p-1 sm:flex-none sm:gap-2">
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={(event) => handleClick(event, link.href)}
-              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+              onClick={(event) =>
+                handleClick(event, link.href)
+              }
+              className={`rounded-full px-3 py-2 text-xs font-semibold transition sm:px-5 sm:text-sm ${
                 active === link.href
                   ? "bg-cyan-400 text-slate-950"
-                  : "text-white/70 hover:text-white"
+                  : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
               }`}
             >
               {link.label}
@@ -105,7 +120,7 @@ export default function Navbar() {
           ))}
         </div>
 
-      <ThemeToggle />
+        <ThemeToggle />
       </div>
     </nav>
   );

@@ -16,6 +16,10 @@ export const projects = [
     ],
     description:
       "Production-style banking dashboard inspired by TBC Bank with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
+    focus:
+      "Built a realistic banking experience with login UI, dashboard sections, transfer flows, templates, multilingual support, and polished responsive layouts.",
+    architecture:
+      "Structured with reusable Next.js and React components, theme/language state, modular dashboard sections, and scalable Tailwind-based UI patterns.",
     highlights: [
       "Authentication UI",
       "Transfers",
@@ -47,6 +51,10 @@ export const projects = [
     ],
     description:
       "Modern job tracking platform with authentication, kanban workflow, analytics dashboard, interview tracking, and responsive dark-mode UI.",
+    focus:
+      "Built a full job-search management flow with authentication, application stages, kanban workflow, dashboard analytics, and interview tracking.",
+    architecture:
+      "Designed with protected Next.js pages, reusable dashboard components, MongoDB-backed data, organized application state, and responsive layouts.",
     highlights: [
       "Authentication",
       "Kanban Board",

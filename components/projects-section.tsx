@@ -67,8 +67,7 @@ export default function ProjectsSection() {
                       </p>
 
                       <p className="mt-3 leading-7 text-[var(--color-muted)]">
-                        Clean architecture, responsive UI, scalable
-                        components, polished UX, and production-style flows.
+                         {project.focus}
                       </p>
                     </div>
 
@@ -78,9 +77,7 @@ export default function ProjectsSection() {
                       </p>
 
                       <p className="mt-3 leading-7 text-[var(--color-muted)]">
-                        Built using reusable React components, modular
-                        sections, smooth animations, and scalable frontend
-                        structure.
+                        {project.architecture}
                       </p>
                     </div>
                   </div>
@@ -208,14 +205,16 @@ function ProjectHeader({
           GitHub
         </a>
 
-        <a
-          href={project.live}
-          target="_blank"
-          rel="noreferrer"
-          className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-5 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-1"
-        >
-          Live Demo
-        </a>
+{project.live !== "#" && (
+  <a
+    href={project.live}
+    target="_blank"
+    rel="noreferrer"
+    className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-5 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition duration-300 hover:-translate-y-1"
+  >
+    Live Demo
+  </a>
+)}
       </div>
     </div>
   );
