@@ -1,95 +1,113 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ThemeToggle from "./theme-toggle";
 
-const navLinks = [
+const links = [
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState("#projects");
-  const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
+    window.history.replaceState(null, "", window.location.pathname);
+    window.scrollTo(0, 0);
+    setActive("");
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-
-      const nearBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 80;
-
-      if (nearBottom) {
-        setActiveSection("#contact");
+      if (window.scrollY < 500) {
+        setActive("");
         return;
       }
 
-      let currentSection = "#projects";
+      const isBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 80;
 
-      navLinks.forEach((link) => {
+      if (isBottom) {
+        setActive("#contact");
+        return;
+      }
+
+      let current = "";
+
+      for (const link of links) {
         const section = document.querySelector(link.href) as HTMLElement | null;
-        if (!section) return;
 
-        if (window.scrollY >= section.offsetTop - 260) {
-          currentSection = link.href;
+        if (!section) continue;
+
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top <= 260 && rect.bottom >= 260) {
+          current = link.href;
+          break;
         }
-      });
+      }
 
-      setActiveSection(currentSection);
+      setActive(current);
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    window.addEventListener("hashchange", handleScroll);
+    const timeout = setTimeout(() => {
+      setActive("");
+      handleScroll();
+    }, 300);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
+      clearTimeout(timeout);
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("hashchange", handleScroll);
     };
   }, []);
 
+  const handleClick = (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    event.preventDefault();
+
+    const section = document.querySelector(href) as HTMLElement | null;
+    if (!section) return;
+
+    setActive(href);
+
+    window.scrollTo({
+      top: section.offsetTop - 120,
+      behavior: "smooth",
+    });
+
+    window.history.replaceState(null, "", window.location.pathname);
+  };
+
   return (
-    <nav
-      className={`fixed left-1/2 top-5 z-50 flex w-[calc(100%-2rem)] -translate-x-1/2 items-center justify-between rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] backdrop-blur-2xl transition-all duration-300 ${
-        scrolled
-          ? "max-w-4xl px-4 py-2 shadow-2xl"
-          : "max-w-5xl px-6 py-4 shadow-xl"
-      }`}
-    >
-      <a
-        href="#"
-        onClick={() => setActiveSection("#projects")}
-        className={`navbar-brand font-black tracking-tight transition-all duration-300 ${
-          scrolled ? "text-sm md:text-base" : "text-base md:text-lg"
-        }`}
-      >
-        Goga Danelia
-      </a>
+    <nav className="fixed left-1/2 top-6 z-50 w-[90%] max-w-5xl -translate-x-1/2 rounded-full border border-white/10 bg-[#0b1020]/80 px-4 py-3 backdrop-blur-xl">
+      <div className="flex items-center justify-between">
+        <div className="font-bold text-white">Goga Danelia</div>
 
-      <div className="hidden items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] p-1 md:flex">
-        {navLinks.map((link) => {
-          const isActive = activeSection === link.href;
-
-          return (
+        <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 p-1">
+          {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setActiveSection(link.href)}
-              className={`rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
-                isActive
-                  ? "bg-gradient-to-r from-cyan-400 to-cyan-300 text-slate-950 shadow-lg shadow-cyan-500/20"
-                  : "nav-link hover:bg-cyan-400/10"
+              onClick={(event) => handleClick(event, link.href)}
+              className={`rounded-full px-5 py-2 text-sm font-semibold transition ${
+                active === link.href
+                  ? "bg-cyan-400 text-slate-950"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               {link.label}
             </a>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      <ThemeToggle />
+        <button className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white">
+          ☀
+        </button>
+      </div>
     </nav>
   );
 }

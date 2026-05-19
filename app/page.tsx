@@ -7,18 +7,24 @@ import ProjectsSection from "@/components/projects-section";
 import ServicesSection from "@/components/services-section";
 import SkillsSection from "@/components/skills-section";
 import StatsSection from "@/components/stats-section";
+import ProcessSection from "@/components/process-section";
+import WorkStyleSection from "@/components/work-style-section";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[var(--color-background)] text-slate-300">
+    <main>
       <HeroSection />
       <StatsSection />
       <AboutSection />
-      <ServicesSection />
+      <ProcessSection />
       <ProjectsSection />
-      <ExperienceSection />
+      <ServicesSection />
       <SkillsSection />
+      <WorkStyleSection />
+      <ExperienceSection />
       <ContactSection />
+      <Footer />
       <FloatingActions />
     </main>
   );
