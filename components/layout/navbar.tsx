@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "@/components/shared/theme-toggle";
+import AvailabilityBadge from "@/components/layout/availability-badge";
 
 const links = [
   { label: "Projects", href: "#projects" },
@@ -120,6 +121,7 @@ export default function Navbar() {
           ))}
         </div>
 
+        <AvailabilityBadge />
         <ThemeToggle />
       </div>
     </nav>

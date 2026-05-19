@@ -1,4 +1,4 @@
-import Reveal from "./reveal";
+import Reveal from "@/components/shared/reveal";
 
 export default function AboutSection() {
   return (

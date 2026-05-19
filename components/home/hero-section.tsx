@@ -1,5 +1,5 @@
-import Navbar from "./navbar";
-import Reveal from "./reveal";
+import Navbar from "@/components/layout/navbar";
+import Reveal from "@/components/shared/reveal";
 
 const highlights = [
   "Production-ready Next.js apps",
