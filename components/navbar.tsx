@@ -84,7 +84,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed left-1/2 top-6 z-50 w-[90%] max-w-5xl -translate-x-1/2 rounded-full border border-white/10 bg-[#0b1020]/80 px-4 py-3 backdrop-blur-xl">
+    <nav className="fixed left-1/2 top-3 z-50 w-[90%] max-w-5xl -translate-x-1/2 rounded-full border border-white/10 bg-[#0b1020]/80 px-4 py-3 backdrop-blur-xl">
       <div className="flex items-center justify-between">
         <div className="font-bold text-white">Goga Danelia</div>
 
