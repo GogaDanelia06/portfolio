@@ -32,6 +32,39 @@ export const projects = [
     live: "#",
   },
   {
+  title: "GPadel",
+  type: "Padel Booking Platform",
+  stack: "Next.js • TypeScript • Tailwind CSS",
+  images: [
+    "/Padel/1.png",
+    "/Padel/2.png",
+    "/Padel/3.png",
+    "/Padel/4.png",
+    "/Padel/5.png",
+    "/Padel/6.png",
+    "/Padel/7.png",
+    "/Padel/8.png",
+    "/Padel/9.png",
+    "/Padel/10.png",
+  ],
+  description:
+    "Modern padel court booking platform with booking flow, admin management, dynamic pricing rules, discount codes, and responsive UI.",
+  focus:
+    "Built a realistic booking experience with court scheduling, pricing logic, discount support, and admin-side management.",
+  architecture:
+    "Structured with reusable Next.js and React components, TypeScript types, local JSON data, and clean Tailwind-based UI sections.",
+  highlights: [
+    "Court Booking Flow",
+    "Dynamic Pricing Rules",
+    "Discount Codes",
+    "Admin Management",
+    "Responsive Design",
+    "Reusable Components",
+  ],
+  github: "https://github.com/GogaDanelia06/gpadel",
+  live: "#",
+},
+  {
     title: "Job Application Tracker",
     type: "Career Dashboard",
     stack: "Next.js • React • TypeScript • MongoDB",
