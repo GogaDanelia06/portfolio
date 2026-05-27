@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/shared/theme-toggle";
 import AvailabilityBadge from "@/components/layout/availability-badge";
@@ -37,9 +38,7 @@ export default function Navbar() {
       let current = "";
 
       for (const link of links) {
-        const section = document.querySelector(
-          link.href
-        ) as HTMLElement | null;
+        const section = document.querySelector(link.href) as HTMLElement | null;
 
         if (!section) continue;
 
@@ -75,9 +74,7 @@ export default function Navbar() {
   ) => {
     event.preventDefault();
 
-    const section = document.querySelector(
-      href
-    ) as HTMLElement | null;
+    const section = document.querySelector(href) as HTMLElement | null;
 
     if (!section) return;
 
@@ -88,18 +85,22 @@ export default function Navbar() {
       behavior: "smooth",
     });
 
-    window.history.replaceState(
-      null,
-      "",
-      window.location.pathname
-    );
+    window.history.replaceState(null, "", window.location.pathname);
   };
 
   return (
     <nav className="fixed left-1/2 top-3 z-50 w-[94%] max-w-5xl -translate-x-1/2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-3 py-2 backdrop-blur-xl md:top-4 md:px-4 md:py-3">
       <div className="flex items-center justify-between gap-2">
-        <div className="hidden font-bold text-[var(--color-text)] sm:block">
-          Goga Danelia
+        <div className="hidden items-center gap-3 font-bold text-[var(--color-text)] sm:flex">
+          <Image
+            src="/logo.png"
+            alt="GD Logo"
+            width={36}
+            height={36}
+            className="h-9 w-9 rounded-full object-contain"
+          />
+
+          <span>Goga Danelia</span>
         </div>
 
         <div className="flex flex-1 items-center justify-center gap-1 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] p-1 sm:flex-none sm:gap-2">
@@ -107,9 +108,7 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              onClick={(event) =>
-                handleClick(event, link.href)
-              }
+              onClick={(event) => handleClick(event, link.href)}
               className={`rounded-full px-3 py-2 text-xs font-semibold transition sm:px-5 sm:text-sm ${
                 active === link.href
                   ? "bg-cyan-400 text-slate-950"
