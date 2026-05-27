@@ -4,18 +4,22 @@ export const projects = [
     type: "Banking Dashboard",
     stack: "Next.js • React • TypeScript • Tailwind CSS",
     images: [
-      "/TBC/1.png",
-      "/TBC/2.png",
-      "/TBC/3.png",
-      "/TBC/4.png",
-      "/TBC/5.png",
-      "/TBC/6.png",
-      "/TBC/7.png",
-      "/TBC/8.png",
-      "/TBC/9.png",
+      "/tbc/1.png",
+      "/tbc/2.png",
+      "/tbc/3.png",
+      "/tbc/4.png",
+      "/tbc/5.png",
+      "/tbc/6.png",
+      "/tbc/7.png",
+      "/tbc/8.png",
+      "/tbc/9.png",
     ],
     description:
       "Production-style banking dashboard inspired by TBC Bank with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
+    focus:
+      "Built a realistic banking experience with login UI, dashboard sections, transfer flows, templates, multilingual support, and polished responsive layouts.",
+    architecture:
+      "Structured with reusable Next.js and React components, theme/language state, modular dashboard sections, and scalable Tailwind-based UI patterns.",
     highlights: [
       "Authentication UI",
       "Transfers",
@@ -27,6 +31,39 @@ export const projects = [
     github: "https://github.com/GogaDanelia06/tbc-web",
     live: "#",
   },
+  {
+  title: "GPadel",
+  type: "Padel Booking Platform",
+  stack: "Next.js • TypeScript • Tailwind CSS",
+  images: [
+    "/Padel/1.png",
+    "/Padel/2.png",
+    "/Padel/3.png",
+    "/Padel/4.png",
+    "/Padel/5.png",
+    "/Padel/6.png",
+    "/Padel/7.png",
+    "/Padel/8.png",
+    "/Padel/9.png",
+    "/Padel/10.png",
+  ],
+  description:
+    "Modern padel court booking platform with booking flow, admin management, dynamic pricing rules, discount codes, and responsive UI.",
+  focus:
+    "Built a realistic booking experience with court scheduling, pricing logic, discount support, and admin-side management.",
+  architecture:
+    "Structured with reusable Next.js and React components, TypeScript types, local JSON data, and clean Tailwind-based UI sections.",
+  highlights: [
+    "Court Booking Flow",
+    "Dynamic Pricing Rules",
+    "Discount Codes",
+    "Admin Management",
+    "Responsive Design",
+    "Reusable Components",
+  ],
+  github: "https://github.com/GogaDanelia06/gpadel",
+  live: "#",
+},
   {
     title: "Job Application Tracker",
     type: "Career Dashboard",
@@ -47,6 +84,10 @@ export const projects = [
     ],
     description:
       "Modern job tracking platform with authentication, kanban workflow, analytics dashboard, interview tracking, and responsive dark-mode UI.",
+    focus:
+      "Built a full job-search management flow with authentication, application stages, kanban workflow, dashboard analytics, and interview tracking.",
+    architecture:
+      "Designed with protected Next.js pages, reusable dashboard components, MongoDB-backed data, organized application state, and responsive layouts.",
     highlights: [
       "Authentication",
       "Kanban Board",

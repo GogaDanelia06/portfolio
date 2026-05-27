@@ -1,5 +1,5 @@
 import { experience } from "@/data/portfolio-data";
-import Reveal from "./reveal";
+import Reveal from "@/components/shared/reveal";
 
 export default function ExperienceSection() {
   return (
