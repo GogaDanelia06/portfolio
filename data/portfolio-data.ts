@@ -1,5 +1,42 @@
 export const projects = [
   {
+    title: "Restaurant",
+    type: "Fine Dining Website",
+    stack: "Next.js • TypeScript • Tailwind CSS",
+    images: [
+      "/see360restaurant/1.png",
+      "/see360restaurant/2.png",
+      "/see360restaurant/3.png",
+      "/see360restaurant/4.png",
+      "/see360restaurant/5.png",
+      "/see360restaurant/6.png",
+      "/see360restaurant/7.png",
+      "/see360restaurant/8.png",
+      "/see360restaurant/9.png",
+      "/see360restaurant/10.png",
+      "/see360restaurant/11.png",
+      "/see360restaurant/12.png",
+      "/see360restaurant/13.png",
+      "/see360restaurant/14.png",
+    ],
+    description:
+      "Elegant fine-dining restaurant website for See360, a rooftop venue in Old Tbilisi serving Georgian & European cuisine, featuring an interactive menu, table reservation flow, and a refined dark, gold-accented UI.",
+    focus:
+      "Built an immersive restaurant experience with a hero showcase, story-driven about section, category-filterable menu with priced dishes, and a complete reservation form with location, hours, and contact details.",
+    architecture:
+      "Structured with reusable Next.js and React components, TypeScript types, local JSON menu data, category-based filtering, and clean Tailwind-based UI sections.",
+    highlights: [
+      "Table Reservations",
+      "Filterable Menu",
+      "360° Views Concept",
+      "Elegant Dark UI",
+      "Responsive Design",
+      "Reusable Components",
+    ],
+    github: "#",
+    live: "#",
+  },
+  {
     title: "TBC Internet Banking Clone",
     type: "Banking Dashboard",
     stack: "Next.js • React • TypeScript • Tailwind CSS",
