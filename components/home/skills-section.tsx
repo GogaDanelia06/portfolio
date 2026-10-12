@@ -49,7 +49,7 @@ export default function SkillsSection() {
     <Reveal>
       <section
         id="skills"
-        className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
+        className="scroll-mt-32 mx-auto max-w-7xl px-6 py-20"
       >
         <div className="mb-14">
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-muted)]">

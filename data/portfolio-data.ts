@@ -1,103 +1,185 @@
-export const projects = [
+export type WorkItem = {
+  name: string;
+  /** Anchor id, e.g. "#work-sidekick". */
+  slug: string;
+  category: string;
+  summary: string;
+  tags: string[];
+  palette: [string, string];
+  /** Real screenshots; the first one is the cover. */
+  images: string[];
+  /** Live site, if public. */
+  url?: string;
+  github?: string;
+  /** Client work for a real business vs. an in-house product build. */
+  kind: "client" | "product";
+};
+
+export const work: WorkItem[] = [
   {
-    title: "TBC Internet Banking Clone",
-    type: "Banking Dashboard",
-    stack: "Next.js • React • TypeScript • Tailwind CSS",
+    name: "Sidekick",
+    slug: "sidekick",
+    category: "AI SaaS Platform",
+    summary:
+      "AI sales assistant that answers customers and takes orders on Facebook, Instagram, and WhatsApp 24/7, with a live demo tester and analytics dashboard.",
+    tags: ["Product UI", "Landing Page", "Dashboard", "KA / EN"],
+    palette: ["#22d3ee", "#6366f1"],
     images: [
-      "/tbc/1.png",
-      "/tbc/2.png",
-      "/tbc/3.png",
-      "/tbc/4.png",
-      "/tbc/5.png",
-      "/tbc/6.png",
-      "/tbc/7.png",
-      "/tbc/8.png",
-      "/tbc/9.png",
+      "/clients/sidekick/1.jpg",
+      "/clients/sidekick/2.jpg",
+      "/clients/sidekick/3.jpg",
     ],
-    description:
-      "Production-style banking dashboard inspired by TBC Bank with authentication flows, transfers, templates, multilingual support, dark/light themes, and reusable component architecture.",
-    focus:
-      "Built a realistic banking experience with login UI, dashboard sections, transfer flows, templates, multilingual support, and polished responsive layouts.",
-    architecture:
-      "Structured with reusable Next.js and React components, theme/language state, modular dashboard sections, and scalable Tailwind-based UI patterns.",
-    highlights: [
-      "Authentication UI",
-      "Transfers",
-      "Multilingual",
-      "Dark / Light Mode",
-      "Dashboard",
-      "Reusable Components",
-    ],
-    github: "https://github.com/GogaDanelia06/tbc-web",
-    live: "#",
+    url: "https://sidekick.ge",
+    kind: "client",
   },
   {
-  title: "GPadel",
-  type: "Padel Booking Platform",
-  stack: "Next.js • TypeScript • Tailwind CSS",
-  images: [
-    "/Padel/1.png",
-    "/Padel/2.png",
-    "/Padel/3.png",
-    "/Padel/4.png",
-    "/Padel/5.png",
-    "/Padel/6.png",
-    "/Padel/7.png",
-    "/Padel/8.png",
-    "/Padel/9.png",
-    "/Padel/10.png",
-  ],
-  description:
-    "Modern padel court booking platform with booking flow, admin management, dynamic pricing rules, discount codes, and responsive UI.",
-  focus:
-    "Built a realistic booking experience with court scheduling, pricing logic, discount support, and admin-side management.",
-  architecture:
-    "Structured with reusable Next.js and React components, TypeScript types, local JSON data, and clean Tailwind-based UI sections.",
-  highlights: [
-    "Court Booking Flow",
-    "Dynamic Pricing Rules",
-    "Discount Codes",
-    "Admin Management",
-    "Responsive Design",
-    "Reusable Components",
-  ],
-  github: "https://github.com/GogaDanelia06/gpadel",
-  live: "#",
-},
-  {
-    title: "Job Application Tracker",
-    type: "Career Dashboard",
-    stack: "Next.js • React • TypeScript • MongoDB",
+    name: "Monolith Group",
+    slug: "monolith",
+    category: "Real Estate Developer",
+    summary:
+      "Corporate platform for one of Georgia's residential developers — project showcases, construction progress, Monolith Card program, news, and FAQ.",
+    tags: ["Corporate Website", "Project Catalog", "CMS", "KA / EN / RU"],
+    palette: ["#f59e0b", "#ef4444"],
     images: [
-      "/job-tracker/1.png",
-      "/job-tracker/2.png",
-      "/job-tracker/3.png",
-      "/job-tracker/4.png",
-      "/job-tracker/5.png",
-      "/job-tracker/6.png",
-      "/job-tracker/7.png",
-      "/job-tracker/8.png",
-      "/job-tracker/9.png",
-      "/job-tracker/10.png",
-      "/job-tracker/11.png",
-      "/job-tracker/12.png",
+      "/clients/monolith/1.jpg",
+      "/clients/monolith/2.jpg",
+      "/clients/monolith/3.jpg",
     ],
-    description:
-      "Modern job tracking platform with authentication, kanban workflow, analytics dashboard, interview tracking, and responsive dark-mode UI.",
-    focus:
-      "Built a full job-search management flow with authentication, application stages, kanban workflow, dashboard analytics, and interview tracking.",
-    architecture:
-      "Designed with protected Next.js pages, reusable dashboard components, MongoDB-backed data, organized application state, and responsive layouts.",
-    highlights: [
-      "Authentication",
-      "Kanban Board",
-      "Dashboard Analytics",
-      "MongoDB",
-      "Responsive UI",
-      "Dark Mode",
+    url: "https://monolith.ge",
+    kind: "client",
+  },
+  {
+    name: "Montavia",
+    slug: "montavia",
+    category: "Design & Construction",
+    summary:
+      "Minimal, architecture-first website for a design, construction, and renovation company with a numbered project portfolio and bold typography.",
+    tags: ["Brand Website", "Portfolio", "Responsive UI", "KA / EN"],
+    palette: ["#a3e635", "#10b981"],
+    images: [
+      "/clients/montavia/1.jpg",
+      "/clients/montavia/2.jpg",
+      "/clients/montavia/3.jpg",
+    ],
+    url: "https://montavia.ge",
+    kind: "client",
+  },
+  {
+    name: "Skaoi — Georgia Ski Hub",
+    slug: "skaoi",
+    category: "Travel Web App",
+    summary:
+      "Bilingual hub for Gudauri, Bakuriani, Goderdzi, and Mestia — live weather and lift status, interactive trail maps, a multi-step trip planner with live pricing, and resort comparison.",
+    tags: ["Live Weather API", "Trip Planner", "Trail Maps", "KA / EN"],
+    palette: ["#38bdf8", "#6366f1"],
+    images: [
+      "/projects/skaoi/1.jpg",
+      "/projects/skaoi/2.jpg",
+      "/projects/skaoi/3.jpg",
+      "/projects/skaoi/4.jpg",
+      "/projects/skaoi/5.jpg",
+    ],
+    github: "https://github.com/GogaDanelia06/skaoi-next",
+    kind: "product",
+  },
+  {
+    name: "The Curated Capsule",
+    slug: "curated-capsule",
+    category: "Shoppable Fashion Magazine",
+    summary:
+      "Editorial fashion magazine you can shop — trend stories, resale value tracking, price-drop alerts, and a saved capsule that sends you to retailers in one click.",
+    tags: ["Editorial Design", "E-commerce", "Price Tracking", "Next.js 16"],
+    palette: ["#f5f5f4", "#d6a77a"],
+    images: [
+      "/projects/curated-capsule/1.jpg",
+      "/projects/curated-capsule/2.jpg",
+      "/projects/curated-capsule/3.jpg",
+    ],
+    url: "https://thecuratedcapsule.vercel.app",
+    github: "https://github.com/GogaDanelia06/thecuratedcapsule",
+    kind: "product",
+  },
+  {
+    name: "GPadel",
+    slug: "gpadel",
+    category: "Padel Booking Platform",
+    summary:
+      "Padel court booking platform with a full booking flow, dynamic pricing rules, discount codes, and an admin panel for managing courts and schedules.",
+    tags: ["Court Booking", "Dynamic Pricing", "Discount Codes", "Admin Panel"],
+    palette: ["#84cc16", "#06b6d4"],
+    images: [
+      "/Padel/1.png",
+      "/Padel/2.png",
+      "/Padel/3.png",
+      "/Padel/4.png",
+      "/Padel/5.png",
+      "/Padel/6.png",
+      "/Padel/7.png",
+      "/Padel/8.png",
+      "/Padel/9.png",
+      "/Padel/10.png",
+    ],
+    github: "https://github.com/GogaDanelia06/gpadel",
+    kind: "product",
+  },
+  {
+    name: "TBC Internet Banking",
+    slug: "tbc",
+    category: "Banking Dashboard",
+    summary:
+      "Production-style internet banking inspired by TBC Bank — authentication, transfers, templates, multilingual support, and dark/light themes.",
+    tags: ["Authentication", "Transfers", "Multilingual", "Dark / Light"],
+    palette: ["#00aeef", "#2563eb"],
+    images: [
+      "/TBC/1.png",
+      "/TBC/2.png",
+      "/TBC/3.png",
+      "/TBC/4.png",
+      "/TBC/5.png",
+      "/TBC/6.png",
+      "/TBC/7.png",
+      "/TBC/8.png",
+      "/TBC/9.png",
+    ],
+    github: "https://github.com/GogaDanelia06/tbc-web",
+    kind: "product",
+  },
+  {
+    name: "Cana",
+    slug: "cana",
+    category: "Product Landing Page",
+    summary:
+      "Bold launch page for a zero-proof sparkling cocktail line — animated cans, floating fruit, and flavor switching that re-themes the whole page.",
+    tags: ["Product Launch", "Animation", "Flavor Switcher", "Branding"],
+    palette: ["#22c55e", "#3b82f6"],
+    images: ["/projects/cocktail-cans/1.jpg", "/projects/cocktail-cans/2.jpg"],
+    github: "https://github.com/GogaDanelia06/cocktail-cans",
+    kind: "product",
+  },
+  {
+    name: "Job Application Tracker",
+    slug: "job-tracker",
+    category: "Career Dashboard",
+    summary:
+      "Job search command center with authentication, a kanban pipeline, interview tracking, and an analytics dashboard backed by MongoDB.",
+    tags: ["Kanban Board", "Analytics", "MongoDB", "Auth"],
+    palette: ["#8b5cf6", "#ec4899"],
+    images: [
+      "/Job-Tracker/1.png",
+      "/Job-Tracker/2.png",
+      "/Job-Tracker/3.png",
+      "/Job-Tracker/4.png",
+      "/Job-Tracker/5.png",
+      "/Job-Tracker/6.png",
+      "/Job-Tracker/7.png",
+      "/Job-Tracker/8.png",
+      "/Job-Tracker/9.png",
+      "/Job-Tracker/10.png",
+      "/Job-Tracker/11.png",
+      "/Job-Tracker/12.png",
     ],
     github: "https://github.com/GogaDanelia06/job-application-tracker",
-    live: "#",
+    kind: "product",
   },
 ];
 

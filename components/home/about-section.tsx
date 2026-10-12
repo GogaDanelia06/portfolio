@@ -3,7 +3,7 @@ import Reveal from "@/components/shared/reveal";
 export default function AboutSection() {
   return (
     <Reveal>
-    <section className="mx-auto max-w-6xl px-6 py-20">
+    <section id="about" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20">
       <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">

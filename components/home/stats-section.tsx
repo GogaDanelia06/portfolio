@@ -1,23 +1,50 @@
-import { projects } from "@/data/portfolio-data";
+"use client";
+
+import { animate, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+
+import { work } from "@/data/portfolio-data";
 
 const stats = [
-  ["5+", "Years Experience"],
-  ["20+", "Completed Projects"],
-  [projects.length, "Featured Projects"],
-  ["100%", "Responsive Focus"],
+  { value: 5, suffix: "+", label: "Years building for the web" },
+  { value: 20, suffix: "+", label: "Projects delivered" },
+  { value: work.filter((item) => item.kind === "client").length, suffix: "", label: "Live client platforms" },
+  { value: work.length, suffix: "", label: "Featured projects" },
 ];
+
+function Counter({ value, suffix }: { value: number; suffix: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, value, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (latest) => setDisplay(Math.round(latest)),
+    });
+    return () => controls.stop();
+  }, [inView, value]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
+}
 
 export default function StatsSection() {
   return (
-    <section className="border-y border-[var(--color-border)] bg-white/[0.03] py-10">
-      <div className="mx-auto grid max-w-6xl gap-5 px-6 md:grid-cols-4">
-        {stats.map(([number, label]) => (
-          <div
-            key={label}
-            className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 transition duration-300 hover:bg-white/[0.07] hover:shadow-2xl hover:shadow-cyan-500/10"
-          >
-            <h3 className="text-4xl font-black text-cyan-300">{number}</h3>
-            <p className="mt-2 text-[var(--color-muted)]">{label}</p>
+    <section className="mx-auto max-w-7xl px-6 py-20">
+      <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-border)] lg:grid-cols-4">
+        {stats.map((stat) => (
+          <div key={stat.label} className="bg-[var(--color-background)] p-6 md:p-10">
+            <p className="font-display text-5xl font-bold tracking-[-0.04em] text-gradient md:text-7xl">
+              <Counter value={stat.value} suffix={stat.suffix} />
+            </p>
+            <p className="mt-3 text-sm md:text-base">{stat.label}</p>
           </div>
         ))}
       </div>

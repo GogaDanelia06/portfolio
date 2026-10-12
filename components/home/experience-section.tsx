@@ -6,9 +6,9 @@ export default function ExperienceSection() {
     <Reveal>
 <section
   id="experience"
-  className="scroll-mt-32 mx-auto max-w-6xl px-6 py-20"
+  className="scroll-mt-32 mx-auto max-w-7xl px-6 py-20"
 >
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
           Experience
         </p>
