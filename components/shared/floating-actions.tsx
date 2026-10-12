@@ -3,7 +3,9 @@
 import { ArrowUp, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 
-export default function FloatingActions() {
+import type { Dictionary } from "@/i18n/dictionaries/en";
+
+export default function FloatingActions({ dict }: { dict: Dictionary["common"] }) {
   const [showTop, setShowTop] = useState(false);
 
   useEffect(() => {
@@ -20,6 +22,8 @@ export default function FloatingActions() {
       <a
         href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
         target="_blank"
+        rel="noreferrer"
+        aria-label={dict.emailUs}
         className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-r from-cyan-400 to-cyan-300 text-slate-950 shadow-lg shadow-cyan-400/30 transition hover:scale-110"
       >
         <Mail className="h-5 w-5" />
@@ -27,7 +31,9 @@ export default function FloatingActions() {
 
       {showTop && (
         <button
+          type="button"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label={dict.backToTop}
           className="flex h-12 w-12 items-center justify-center rounded-full border border-[var(--color-border)] bg-slate-900 text-slate-300 shadow-lg transition hover:scale-110 hover:border-cyan-400"
         >
           <ArrowUp className="h-5 w-5" />

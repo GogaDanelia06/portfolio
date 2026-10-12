@@ -14,12 +14,19 @@ import {
 import { useEffect, useRef, useState } from "react";
 
 import { work } from "@/data/portfolio-data";
+import type { Dictionary } from "@/i18n/dictionaries/en";
+import { format } from "@/i18n/format";
 
 const AUTO_SPEED = 6; // degrees per second
 const DRAG_FACTOR = 0.25; // degrees per dragged pixel
 
 /** A 3D ring of project covers: auto-spins, drag to rotate, tilts with scroll. */
-export default function ShowreelSection() {
+type Props = {
+  dict: Dictionary["showreel"];
+  names: Dictionary["work"]["items"];
+};
+
+export default function ShowreelSection({ dict, names }: Props) {
   const section = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
@@ -106,16 +113,15 @@ export default function ShowreelSection() {
       className="relative overflow-hidden py-24 md:py-32"
     >
       <div className="mx-auto max-w-7xl px-6 text-center">
-        <p className="eyebrow justify-center">Showreel</p>
+        <p className="eyebrow justify-center">{dict.eyebrow}</p>
         <h2
           id="showreel-title"
           className="font-display mx-auto mt-4 max-w-3xl text-4xl font-bold leading-[1.02] tracking-[-0.03em] md:text-6xl"
         >
-          {count} launches. <span className="text-gradient">One standard.</span>
+          {format(dict.title, { count })}{" "}
+          <span className="text-gradient">{dict.highlight}</span>
         </h2>
-        <p className="mx-auto mt-5 max-w-md">
-          Drag to spin through the work — tap any project to jump to it.
-        </p>
+        <p className="mx-auto mt-5 max-w-md">{dict.hint}</p>
       </div>
 
       <div
@@ -136,7 +142,7 @@ export default function ShowreelSection() {
                 key={item.slug}
                 type="button"
                 onClick={() => goTo(item.slug)}
-                aria-label={`Jump to ${item.name}`}
+                aria-label={format(dict.jumpTo, { name: names[item.slug].name })}
                 className="group absolute overflow-hidden rounded-2xl border border-white/10 bg-slate-900 shadow-2xl [backface-visibility:hidden]"
                 style={{
                   width: cardWidth,
@@ -156,7 +162,7 @@ export default function ShowreelSection() {
                 />
                 <span className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-3 pt-10 text-left">
                   <span className="font-display text-sm font-bold text-white md:text-base">
-                    {item.name}
+                    {names[item.slug].name}
                   </span>
                   <span
                     className="h-2 w-2 shrink-0 rounded-full"

@@ -7,16 +7,18 @@ import { useState } from "react";
 import ImageModal from "@/components/shared/image-modal";
 import TiltCard from "@/components/shared/tilt-card";
 import BrowserFrame from "@/components/work/browser-frame";
-import { work, type WorkItem } from "@/data/portfolio-data";
+import { displayDomain, work, type WorkItem } from "@/data/portfolio-data";
+import type { Dictionary } from "@/i18n/dictionaries/en";
+import { format } from "@/i18n/format";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-function addressFor(item: WorkItem) {
-  if (item.url) return item.url.replace(/^https?:\/\//, "");
-  return item.github?.replace(/^https?:\/\//, "") ?? item.name;
-}
+type Props = {
+  dict: Dictionary["work"];
+  common: Dictionary["common"];
+};
 
-export default function WorkSection() {
+export default function WorkSection({ dict, common }: Props) {
   const [gallery, setGallery] = useState<string[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -29,21 +31,19 @@ export default function WorkSection() {
     <section id="work" className="relative mx-auto max-w-7xl scroll-mt-28 px-6 py-24 md:py-32">
       <div className="mb-16 grid gap-6 md:grid-cols-[1fr_auto] md:items-end">
         <div>
-          <p className="eyebrow">Selected work</p>
+          <p className="eyebrow">{dict.eyebrow}</p>
           <h2 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.02] tracking-[-0.03em] md:text-6xl">
-            Live products, <span className="text-gradient">real businesses.</span>
+            {dict.title} <span className="text-gradient">{dict.highlight}</span>
           </h2>
         </div>
-        <p className="max-w-sm leading-7">
-          From AI SaaS and real estate to travel, fashion, and fintech —
-          products built to look sharp and convert.
-        </p>
+        <p className="max-w-sm leading-7">{dict.intro}</p>
       </div>
 
       <div className="flex flex-col gap-20 md:gap-28">
         {work.map((item, index) => {
           const reversed = index % 2 === 1;
           const href = item.url ?? item.github;
+          const copy = dict.items[item.slug];
 
           return (
             <motion.article
@@ -59,7 +59,7 @@ export default function WorkSection() {
               <button
                 type="button"
                 onClick={() => openGallery(item)}
-                aria-label={`View ${item.images.length} screenshots of ${item.name}`}
+                aria-label={format(dict.viewScreenshots, { count: item.images.length, name: copy.name })}
                 className={`text-left ${reversed ? "lg:order-2" : ""}`}
               >
                 <TiltCard className="rounded-[1.75rem]" intensity={6}>
@@ -71,13 +71,13 @@ export default function WorkSection() {
                   >
                     <BrowserFrame
                       src={item.images[0]}
-                      alt={`${item.name} website`}
-                      address={addressFor(item)}
+                      alt={copy.name}
+                      address={displayDomain(item)}
                       priority={index === 0}
                     />
                     <span className="absolute bottom-7 right-7 inline-flex items-center gap-2 rounded-full bg-black/70 px-3 py-1.5 text-xs font-semibold text-white opacity-0 backdrop-blur transition duration-300 group-hover:opacity-100 sm:opacity-100">
                       <Expand className="h-3.5 w-3.5" />
-                      {item.images.length} screens
+                      {format(dict.screens, { count: item.images.length })}
                     </span>
                   </div>
                 </TiltCard>
@@ -96,18 +96,18 @@ export default function WorkSection() {
                       background: `${item.palette[0]}1a`,
                     }}
                   >
-                    {item.category}
+                    {copy.category}
                   </span>
                 </div>
 
                 <h3 className="font-display mt-6 text-3xl font-bold tracking-[-0.02em] md:text-5xl">
-                  {item.name}
+                  {copy.name}
                 </h3>
 
-                <p className="mt-5 text-lg leading-8">{item.summary}</p>
+                <p className="mt-5 text-lg leading-8">{copy.summary}</p>
 
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {item.tags.map((tag) => (
+                  {copy.tags.map((tag) => (
                     <span key={tag} className="chip">
                       {tag}
                     </span>
@@ -122,7 +122,7 @@ export default function WorkSection() {
                       rel="noreferrer"
                       className="link-underline inline-flex items-center gap-2 font-semibold text-[var(--color-text)]"
                     >
-                      {item.url ? `Visit ${addressFor(item)}` : "View on GitHub"}
+                      {item.url ? format(dict.visit, { domain: displayDomain(item) }) : dict.github}
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                   )}
@@ -131,7 +131,7 @@ export default function WorkSection() {
                     onClick={() => openGallery(item)}
                     className="link-underline inline-flex items-center gap-2 font-semibold text-[var(--color-muted)] hover:text-[var(--color-text)]"
                   >
-                    Screenshots
+                    {dict.screenshots}
                     <Expand className="h-4 w-4" />
                   </button>
                 </div>
@@ -152,12 +152,9 @@ export default function WorkSection() {
             <Plus className="h-7 w-7" />
           </span>
           <p className="font-display text-3xl font-bold tracking-[-0.02em] md:text-4xl">
-            Your brand could be next.
+            {dict.nextTitle}
           </p>
-          <p className="max-w-md">
-            Tell us about your idea — we&apos;ll reply within 24 hours with
-            next steps.
-          </p>
+          <p className="max-w-md">{dict.nextText}</p>
         </motion.a>
       </div>
 
@@ -166,6 +163,7 @@ export default function WorkSection() {
         images={gallery}
         onClose={() => setSelectedImage(null)}
         onChangeImage={setSelectedImage}
+        labels={common}
       />
     </section>
   );
