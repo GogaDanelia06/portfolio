@@ -3,13 +3,16 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
 type Props = {
   image: string | null;
   images: string[];
   onClose: () => void;
   onChangeImage: (image: string) => void;
+  labels: Dictionary["common"];
 };
 
 export default function ImageModal({
@@ -17,6 +20,7 @@ export default function ImageModal({
   images,
   onClose,
   onChangeImage,
+  labels,
 }: Props) {
   const currentIndex = image ? images.indexOf(image) : -1;
 
@@ -38,13 +42,21 @@ export default function ImageModal({
     onChangeImage(images[currentIndex + 1]);
   };
 
+  // Latest handlers for the key listener, which only re-binds on open/close.
+  const keyActions = useRef({ onClose, showPrevious, showNext });
   useEffect(() => {
-    if (!image) return;
+    keyActions.current = { onClose, showPrevious, showNext };
+  });
+
+  const isOpen = image !== null;
+
+  useEffect(() => {
+    if (!isOpen) return;
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") onClose();
-      if (event.key === "ArrowLeft") showPrevious();
-      if (event.key === "ArrowRight") showNext();
+      if (event.key === "Escape") keyActions.current.onClose();
+      if (event.key === "ArrowLeft") keyActions.current.showPrevious();
+      if (event.key === "ArrowRight") keyActions.current.showNext();
     };
 
     document.body.style.overflow = "hidden";
@@ -54,7 +66,7 @@ export default function ImageModal({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [image, currentIndex]);
+  }, [isOpen]);
 
   return (
     <AnimatePresence>
@@ -68,6 +80,7 @@ export default function ImageModal({
         >
           <button
             onClick={onClose}
+            aria-label={labels.close}
             className="absolute right-5 top-5 z-20 rounded-full border border-white/15 bg-white/10 p-3 text-white transition hover:bg-white/20"
           >
             <X className="h-6 w-6" />
@@ -78,6 +91,7 @@ export default function ImageModal({
               event.stopPropagation();
               showPrevious();
             }}
+            aria-label={labels.previous}
             className="absolute left-5 z-20 rounded-full border border-white/15 bg-white/10 p-3 text-white transition hover:bg-white/20"
           >
             <ChevronLeft className="h-7 w-7" />
@@ -88,6 +102,7 @@ export default function ImageModal({
               event.stopPropagation();
               showNext();
             }}
+            aria-label={labels.next}
             className="absolute right-5 z-20 rounded-full border border-white/15 bg-white/10 p-3 text-white transition hover:bg-white/20"
           >
             <ChevronRight className="h-7 w-7" />
@@ -103,7 +118,7 @@ export default function ImageModal({
           >
             <Image
               src={image}
-              alt="Project screenshot preview"
+              alt={labels.screenshotAlt}
               width={1800}
               height={1200}
               className="max-h-[92vh] w-auto object-contain"

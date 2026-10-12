@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 
-export default function ContactSection() {
+import type { Dictionary } from "@/i18n/dictionaries/en";
+
+export default function ContactSection({ dict }: { dict: Dictionary["contact"] }) {
   const [copied, setCopied] = useState("");
 
   const copyText = async (text: string, label: string) => {
@@ -18,7 +20,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-32 mx-auto max-w-6xl px-6 pt-10 pb-20"
+      className="scroll-mt-28 mx-auto max-w-7xl px-6 pt-10 pb-20"
     >
       <div className="relative overflow-hidden rounded-[2.5rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-8 shadow-[0_30px_120px_rgba(0,0,0,0.25)] md:p-12">
         <div className="absolute right-[-120px] top-[-120px] h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]" />
@@ -27,17 +29,15 @@ export default function ContactSection() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-bold text-cyan-300">
             <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
 
-            Available for freelance & full-time work
+            {dict.badge}
           </div>
 
-          <h2 className="mt-6 max-w-4xl text-4xl font-black leading-tight text-[var(--color-text)] md:text-6xl">
-            Let’s build something modern, scalable, and production-ready.
+          <h2 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-[var(--color-text)] md:text-6xl">
+            {dict.title} <span className="text-gradient">{dict.highlight}</span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-            I build modern dashboards, responsive interfaces,
-            authentication systems, frontend architectures, and polished
-            web experiences using Next.js, React, TypeScript, and Tailwind CSS.
+            {dict.text}
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -45,9 +45,9 @@ export default function ContactSection() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:-translate-y-1"
+              className="btn-primary"
             >
-              Email Me
+              {dict.primaryCta}
             </a>
 
             <a
@@ -56,15 +56,16 @@ export default function ContactSection() {
               rel="noreferrer"
               className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-7 py-4 font-bold text-[var(--color-text)] transition hover:-translate-y-1 hover:border-cyan-400/40"
             >
-              View CV
+              {dict.cv}
             </a>
           </div>
 
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             <ContactCard
-              title="Email"
+              title={dict.email}
               value="daneliagoga6@gmail.com"
-              button="Copy Email"
+              button={dict.copyEmail}
+              copiedLabel={dict.copied}
               copied={copied === "email"}
               onClick={() =>
                 copyText("daneliagoga6@gmail.com", "email")
@@ -72,9 +73,10 @@ export default function ContactSection() {
             />
 
             <ContactCard
-              title="Phone"
+              title={dict.phone}
               value="+995 595 56 06 35"
-              button="Copy Phone"
+              button={dict.copyPhone}
+              copiedLabel={dict.copied}
               copied={copied === "phone"}
               onClick={() =>
                 copyText("+995595560635", "phone")
@@ -83,11 +85,11 @@ export default function ContactSection() {
 
             <div className="rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-surface)] p-6">
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-cyan-300">
-                Location
+                {dict.location}
               </p>
 
               <p className="mt-3 text-lg font-black text-[var(--color-text)]">
-                Tbilisi, Georgia
+                {dict.city}
               </p>
             </div>
           </div>
@@ -122,12 +124,14 @@ function ContactCard({
   value,
   button,
   copied,
+  copiedLabel,
   onClick,
 }: {
   title: string;
   value: string;
   button: string;
   copied: boolean;
+  copiedLabel: string;
   onClick: () => void;
 }) {
   return (
@@ -144,7 +148,7 @@ function ContactCard({
         onClick={onClick}
         className="mt-5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] px-4 py-2 text-sm font-bold text-[var(--color-text)] transition hover:border-cyan-400/40"
       >
-        {copied ? "Copied!" : button}
+        {copied ? copiedLabel : button}
       </button>
     </div>
   );

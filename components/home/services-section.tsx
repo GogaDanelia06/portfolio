@@ -1,39 +1,64 @@
-import Reveal from "@/components/shared/reveal";
+"use client";
 
-const services = [
-  "Dashboard & Admin Panel Development",
-  "React / Next.js Websites",
-  "Responsive UI Development",
-  "Authentication Interfaces",
-  "API Integration",
-  "Frontend Bug Fixing",
+import { motion } from "framer-motion";
+import {
+  Bot,
+  Building2,
+  Gauge,
+  LayoutDashboard,
+  Languages,
+  Sparkles,
+} from "lucide-react";
+
+import type { Dictionary } from "@/i18n/dictionaries/en";
+
+// Paired by index with dictionary.services.items.
+const layout = [
+  { icon: Sparkles, span: "md:col-span-2" },
+  { icon: LayoutDashboard, span: "" },
+  { icon: Building2, span: "" },
+  { icon: Bot, span: "" },
+  { icon: Languages, span: "" },
+  { icon: Gauge, span: "md:col-span-2 lg:col-span-3" },
 ];
 
-export default function ServicesSection() {
+export default function ServicesSection({ dict }: { dict: Dictionary["services"] }) {
   return (
-   <Reveal>
-    <section className="border-y border-[var(--color-border)] bg-white/[0.03] py-20">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-          What I Do
-        </p>
+    <section id="services" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
+      <p className="eyebrow">{dict.eyebrow}</p>
+      <h2 className="font-display mt-4 max-w-3xl text-4xl font-bold leading-[1.05] tracking-[-0.03em] md:text-6xl">
+        {dict.title} <span className="text-gradient">{dict.highlight}</span>
+      </h2>
 
-        <h2 className="mt-3 text-4xl font-black">
-          Services I can help with
-        </h2>
+      <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {dict.items.map((service, index) => {
+          const { icon: Icon, span } = layout[index];
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <div
-              key={service}
-              className="rounded-3xl border border-[var(--color-border)] bg-slate-950/50 p-6 transition hover:border-cyan-400/50"
+          return (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 40, rotateX: 25, transformPerspective: 1000 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, transformPerspective: 1000 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: (index % 3) * 0.08 }}
+              className={`spotlight-card group relative overflow-hidden rounded-[1.75rem] p-7 md:p-8 ${span}`}
+              onPointerMove={(event) => {
+                const rect = event.currentTarget.getBoundingClientRect();
+                event.currentTarget.style.setProperty("--x", `${event.clientX - rect.left}px`);
+                event.currentTarget.style.setProperty("--y", `${event.clientY - rect.top}px`);
+              }}
             >
-              <p className="text-lg font-bold">{service}</p>
-            </div>
-          ))}
-        </div>
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] transition duration-500 group-hover:rotate-6 group-hover:scale-110">
+                <Icon className="h-6 w-6" />
+              </span>
+              <h3 className="font-display mt-8 text-2xl font-bold tracking-[-0.02em]">
+                {service.title}
+              </h3>
+              <p className="mt-3 max-w-xl leading-7">{service.text}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
-     </Reveal>
   );
 }

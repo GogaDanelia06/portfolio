@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
-
-export const alt = "Goga Danelia Portfolio";
+export const alt = "Goga Danelia — Websites & Digital Products";
 export const size = {
   width: 1200,
   height: 630,
@@ -50,7 +48,7 @@ export default async function Image() {
             textTransform: "uppercase",
           }}
         >
-          Full-Stack Developer
+          Websites & Digital Products
         </div>
 
         <div
@@ -74,9 +72,8 @@ export default async function Image() {
             lineHeight: 1.4,
           }}
         >
-          Building modern dashboards, authentication systems,
-          scalable interfaces, and production-ready web apps
-          with Next.js, React, TypeScript, and Tailwind CSS.
+          Fast, beautiful websites, SaaS products, and dashboards
+          for brands like Sidekick, Monolith Group, and Montavia.
         </div>
 
         <div
@@ -86,7 +83,7 @@ export default async function Image() {
             marginTop: 48,
           }}
         >
-          {["Next.js", "React", "TypeScript", "Tailwind CSS"].map(
+          {["sidekick.ge", "monolith.ge", "montavia.ge"].map(
             (item) => (
               <div
                 key={item}
