@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local tooling
+/.claude/
+# this project uses npm (package-lock.json)
+pnpm-lock.yaml
