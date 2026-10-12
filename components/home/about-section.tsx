@@ -1,35 +1,27 @@
 import Reveal from "@/components/shared/reveal";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-export default function AboutSection() {
+export default function AboutSection({ dict }: { dict: Dictionary["about"] }) {
   return (
     <Reveal>
-    <section id="about" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-20">
-      <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-            About Me
-          </p>
-          <h2 className="mt-3 text-4xl font-black">
-            Developer focused on clean UI and real product experience.
-          </h2>
-        </div>
+      <section id="about" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <p className="eyebrow">{dict.eyebrow}</p>
+            <h2 className="mt-4 text-4xl font-bold leading-[1.05] tracking-[-0.03em] md:text-5xl">
+              {dict.title}
+            </h2>
+          </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.05] p-6 text-[var(--color-muted)]">
-          <p className="leading-8">
-            I’m Goga Danelia, a Full-Stack Developer focused on building modern
-            web applications with Next.js, React, TypeScript, and Tailwind CSS.
-            I enjoy creating dashboards, authentication flows, responsive
-            interfaces, and clean component-based systems.
-          </p>
-
-          <p className="mt-5 leading-8">
-            My main goal is to build applications that look professional, work
-            smoothly on different devices, and feel close to real production
-            products.
-          </p>
+          <div className="spotlight-card rounded-[2rem] p-7 md:p-9">
+            {dict.paragraphs.map((paragraph) => (
+              <p key={paragraph} className="text-lg leading-8 [&+&]:mt-5">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </Reveal>
   );
 }

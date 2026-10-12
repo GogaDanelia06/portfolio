@@ -4,13 +4,8 @@ import { animate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import { work } from "@/data/portfolio-data";
+import type { Dictionary } from "@/i18n/dictionaries/en";
 
-const stats = [
-  { value: 5, suffix: "+", label: "Years building for the web" },
-  { value: 20, suffix: "+", label: "Projects delivered" },
-  { value: work.filter((item) => item.kind === "client").length, suffix: "", label: "Live client platforms" },
-  { value: work.length, suffix: "", label: "Featured projects" },
-];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -35,7 +30,18 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   );
 }
 
-export default function StatsSection() {
+export default function StatsSection({ dict }: { dict: Dictionary["stats"] }) {
+  const stats = [
+    { value: 5, suffix: "+", label: dict.years },
+    { value: 20, suffix: "+", label: dict.delivered },
+    {
+      value: work.filter((item) => item.kind === "client").length,
+      suffix: "",
+      label: dict.clients,
+    },
+    { value: work.length, suffix: "", label: dict.featured },
+  ];
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
       <div className="grid grid-cols-2 gap-px overflow-hidden rounded-[2rem] border border-[var(--color-border)] bg-[var(--color-border)] lg:grid-cols-4">

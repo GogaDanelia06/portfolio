@@ -1,19 +1,6 @@
-const items = [
-  "Web Design",
-  "Next.js",
-  "3D & Motion",
-  "SaaS Products",
-  "E-commerce",
-  "Dashboards",
-  "Branding Sites",
-  "TypeScript",
-  "SEO-ready",
-];
-
-export default function MarqueeSection() {
+export default function MarqueeSection({ items }: { items: string[] }) {
   return (
     <section
-      aria-label="What we do"
       className="relative overflow-hidden border-y border-[var(--color-border)] py-6"
     >
       <div className="marquee flex w-max gap-10">
