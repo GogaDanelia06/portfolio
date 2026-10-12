@@ -71,6 +71,7 @@ export default function WorkSection({ dict, common }: Props) {
                   >
                     <BrowserFrame
                       src={item.images[0]}
+                      video={item.video}
                       alt={copy.name}
                       address={displayDomain(item)}
                       priority={index === 0}

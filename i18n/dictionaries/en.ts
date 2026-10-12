@@ -97,6 +97,13 @@ export const en = {
           "Minimal, architecture-first website for a design, construction, and renovation company, with a numbered project portfolio and bold typography.",
         tags: ["Brand Website", "Portfolio", "Responsive UI", "KA / EN"],
       },
+      "atelier-noir": {
+        name: "Atelier Noir",
+        category: "Interactive 3D Beauty Store",
+        summary:
+          "Luxury beauty storefront where every product works. Press the perfume and the cap unscrews, it sprays at you, and the screen fogs with droplets that bead, run, and dry. The lipstick swivels up and writes on the glass; the body oil pump splashes golden drops.",
+        tags: ["Three.js", "WebGL", "Canvas Effects", "Next.js"],
+      },
       skaoi: {
         name: "Skaoi — Georgia Ski Hub",
         category: "Travel Web App",

@@ -9,6 +9,9 @@ export type WorkItem = {
   palette: [string, string];
   /** Real screenshots; the first one is the cover. */
   images: string[];
+  /** Muted loop shown in place of the cover image, for work that only makes sense in motion.
+   *  Path without extension: `.webm` and `.mp4` versions sit side by side. */
+  video?: string;
   /** Live site, if public. */
   url?: string;
   github?: string;
@@ -72,6 +75,24 @@ export const work: WorkItem[] = [
     ],
     url: "https://montavia.ge",
     kind: "client",
+  },
+  {
+    slug: "atelier-noir",
+    palette: ["#c2a98d", "#c0680f"],
+    images: [
+      "/projects/atelier-noir/1.jpg",
+      "/projects/atelier-noir/2.jpg",
+      "/projects/atelier-noir/3.jpg",
+      "/projects/atelier-noir/4.jpg",
+      "/projects/atelier-noir/5.jpg",
+      "/projects/atelier-noir/6.jpg",
+      "/projects/atelier-noir/7.jpg",
+      "/projects/atelier-noir/8.jpg",
+    ],
+    video: "/projects/atelier-noir/showcase",
+    url: "https://atelier-noir-phi-wine.vercel.app",
+    github: "https://github.com/GogaDanelia06/Atelier-noir",
+    kind: "product",
   },
   {
     slug: "skaoi",

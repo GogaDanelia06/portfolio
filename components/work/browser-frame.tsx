@@ -1,7 +1,11 @@
 import Image from "next/image";
 
+import LoopVideo from "@/components/work/loop-video";
+
 type Props = {
   src: string;
+  /** Plays in place of the screenshot, which becomes its poster. */
+  video?: string;
   alt: string;
   address: string;
   priority?: boolean;
@@ -11,6 +15,7 @@ type Props = {
 /** Screenshot inside a minimal browser window. */
 export default function BrowserFrame({
   src,
+  video,
   alt,
   address,
   priority = false,
@@ -28,14 +33,23 @@ export default function BrowserFrame({
       </div>
 
       <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          priority={priority}
-          sizes={sizes}
-          className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
-        />
+        {video ? (
+          <LoopVideo
+            src={video}
+            poster={src}
+            label={alt}
+            className="absolute inset-0 h-full w-full object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes={sizes}
+            className="object-cover object-top transition duration-700 group-hover:scale-[1.03]"
+          />
+        )}
       </div>
     </div>
   );
