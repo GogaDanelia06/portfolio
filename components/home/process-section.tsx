@@ -3,37 +3,35 @@ import Reveal from "@/components/shared/reveal";
 const steps = [
   {
     number: "01",
-    title: "Understand the product",
-    text: "I first define the goal, users, required pages, and main user flows before writing code.",
+    title: "Discover",
+    text: "We dig into your business, audience, and goals, then map the pages and user flows that will drive conversions.",
   },
   {
     number: "02",
-    title: "Design the structure",
-    text: "I plan reusable components, responsive layouts, data flow, and clean project architecture.",
+    title: "Design",
+    text: "A distinctive visual direction with motion and 3D where it adds impact — reviewed with you before a line of code.",
   },
   {
     number: "03",
-    title: "Build the interface",
-    text: "I develop polished UI with Next.js, React, TypeScript, Tailwind CSS, and real UX details.",
+    title: "Build",
+    text: "Fast, SEO-ready Next.js development with a CMS your team can actually use, in every language you need.",
   },
   {
     number: "04",
-    title: "Test and polish",
-    text: "I check responsiveness, loading states, errors, spacing, accessibility, and final visual quality.",
+    title: "Launch & grow",
+    text: "Cross-device QA, performance tuning, analytics, and ongoing support after go-live.",
   },
 ];
 
 export default function ProcessSection() {
   return (
     <Reveal>
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      <section className="mx-auto max-w-7xl px-6 py-24">
         <div className="mb-12">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.35em] text-[var(--color-muted)]">
-            Process
-          </p>
+          <p className="eyebrow mb-4">Process</p>
 
-          <h2 className="max-w-3xl text-4xl font-black tracking-tight md:text-5xl">
-            How I turn ideas into clean production-ready interfaces.
+          <h2 className="max-w-3xl text-4xl font-bold tracking-[-0.03em] md:text-6xl">
+            From first call to launch in four clear steps.
           </h2>
         </div>
 
@@ -41,13 +39,13 @@ export default function ProcessSection() {
           {steps.map((step) => (
             <div
               key={step.number}
-              className="theme-card rounded-[2rem] p-6 transition hover:-translate-y-1"
+              className="spotlight-card rounded-[2rem] p-6 md:p-8"
             >
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/10 text-lg font-black text-cyan-300">
                 {step.number}
               </div>
 
-              <h3 className="text-2xl font-black">{step.title}</h3>
+              <h3 className="text-2xl font-bold">{step.title}</h3>
 
               <p className="mt-4 leading-7 text-[var(--color-muted)]">
                 {step.text}

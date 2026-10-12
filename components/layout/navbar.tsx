@@ -6,9 +6,9 @@ import ThemeToggle from "@/components/shared/theme-toggle";
 import AvailabilityBadge from "@/components/layout/availability-badge";
 
 const links = [
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#work" },
+  { label: "Services", href: "#services" },
+  { label: "About", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -109,9 +109,9 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={(event) => handleClick(event, link.href)}
-              className={`rounded-full px-3 py-2 text-xs font-semibold transition sm:px-5 sm:text-sm ${
+              className={`whitespace-nowrap rounded-full px-2 py-2 text-[11px] font-semibold transition sm:px-5 sm:text-sm ${
                 active === link.href
-                  ? "bg-cyan-400 text-slate-950"
+                  ? "bg-[var(--color-primary)] text-slate-950"
                   : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
               }`}
             >
@@ -120,8 +120,10 @@ export default function Navbar() {
           ))}
         </div>
 
-        <AvailabilityBadge />
-        <ThemeToggle />
+        <div className="flex shrink-0 items-center gap-2">
+          <AvailabilityBadge />
+          <ThemeToggle />
+        </div>
       </div>
     </nav>
   );

@@ -1,14 +1,25 @@
 import type { Metadata } from "next";
+import { Bricolage_Grotesque, Inter } from "next/font/google";
 import "./globals.css";
+
+const display = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
   "https://portfolio-one-delta-v6nldbrif7.vercel.app"
 ),
 
-  title: "Goga Danelia | Full-Stack Developer",
+  title: "Goga Danelia | Websites & Digital Products",
   description:
-    "Portfolio of Goga Danelia, a Full-Stack Developer focused on Next.js, React, TypeScript, dashboards, authentication flows, and production-ready web applications.",
+    "Goga Danelia & team build immersive websites, SaaS products, and dashboards for brands like Sidekick, Monolith Group, and Montavia. Next.js, React, TypeScript, 3D, and motion.",
 
   keywords: [
     "Goga Danelia",
@@ -19,6 +30,8 @@ export const metadata: Metadata = {
     "Frontend Developer",
     "Tbilisi Developer",
     "Tailwind CSS",
+    "Web Development Georgia",
+    "საიტის დამზადება",
   ],
 
   authors: [{ name: "Goga Danelia" }],
@@ -47,7 +60,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${sans.variable}`}>
       <body>{children}</body>
     </html>
   );

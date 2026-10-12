@@ -18,7 +18,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="scroll-mt-32 mx-auto max-w-6xl px-6 pt-10 pb-20"
+      className="scroll-mt-28 mx-auto max-w-7xl px-6 pt-10 pb-20"
     >
       <div className="relative overflow-hidden rounded-[2.5rem] border border-[var(--color-border)] bg-[var(--color-surface-strong)] p-8 shadow-[0_30px_120px_rgba(0,0,0,0.25)] md:p-12">
         <div className="absolute right-[-120px] top-[-120px] h-72 w-72 rounded-full bg-cyan-400/10 blur-[120px]" />
@@ -27,17 +27,16 @@ export default function ContactSection() {
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 px-4 py-2 text-sm font-bold text-cyan-300">
             <div className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
 
-            Available for freelance & full-time work
+            Booking projects for the coming months
           </div>
 
-          <h2 className="mt-6 max-w-4xl text-4xl font-black leading-tight text-[var(--color-text)] md:text-6xl">
-            Let’s build something modern, scalable, and production-ready.
+          <h2 className="mt-6 max-w-4xl text-4xl font-bold leading-[1.02] tracking-[-0.03em] text-[var(--color-text)] md:text-7xl">
+            Have a project in mind? Let’s make it <span className="text-gradient">extraordinary.</span>
           </h2>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-            I build modern dashboards, responsive interfaces,
-            authentication systems, frontend architectures, and polished
-            web experiences using Next.js, React, TypeScript, and Tailwind CSS.
+            Websites, SaaS products, dashboards, and AI-powered tools — tell us
+            what you&apos;re building and you&apos;ll get a reply within 24 hours.
           </p>
 
           <div className="mt-10 flex flex-wrap gap-4">
@@ -45,9 +44,9 @@ export default function ContactSection() {
               href="https://mail.google.com/mail/?view=cm&fs=1&to=daneliagoga6@gmail.com"
               target="_blank"
               rel="noreferrer"
-              className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-7 py-4 font-bold text-slate-950 shadow-lg shadow-cyan-500/20 transition hover:-translate-y-1"
+              className="btn-primary"
             >
-              Email Me
+              Start a project
             </a>
 
             <a

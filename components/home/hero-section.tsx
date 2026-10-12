@@ -1,114 +1,111 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+
 import Navbar from "@/components/layout/navbar";
-import Reveal from "@/components/shared/reveal";
+import HeroShowcase from "@/components/home/hero-showcase";
+import { work } from "@/data/portfolio-data";
 
-const highlights = [
-  "Production-ready Next.js apps",
-  "Dashboard & admin interfaces",
-  "Authentication and protected routes",
-  "Clean component architecture",
-];
+const headline = ["Websites", "that", "turn", "visitors", "into", "clients."];
 
-const techStack = ["Next.js", "React", "TypeScript", "Tailwind CSS"];
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function HeroSection() {
   return (
-    <Reveal>
-      <section className="relative min-h-screen overflow-hidden">
-        <div className="absolute left-[-140px] top-[-140px] h-96 w-96 rounded-full bg-cyan-400/20 blur-[130px]" />
-        <div className="absolute bottom-[-180px] right-[-120px] h-[28rem] w-[28rem] rounded-full bg-violet-500/20 blur-[150px]" />
+    <section className="relative min-h-[100svh] overflow-hidden">
+      <div className="hero-grid pointer-events-none absolute inset-0" />
 
-        <div className="relative mx-auto max-w-6xl px-6 py-8">
-          <Navbar />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[var(--color-background)] to-transparent" />
 
-          <div className="grid min-h-[82vh] items-center gap-14 py-16 lg:grid-cols-[1.2fr_0.8fr]">
-            <div>
-              <div className="mb-6 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm font-semibold text-cyan-300">
-                Full-Stack Developer • React • Next.js • TypeScript
-              </div>
+      <Navbar />
 
-              <h1 className="max-w-4xl text-5xl font-black leading-[1.03] tracking-tight md:text-7xl">
-                I build scalable web apps with clean UI and real product
-                thinking.
-              </h1>
+      <div className="relative mx-auto grid min-h-[100svh] max-w-7xl items-center gap-12 px-6 pb-16 pt-32 lg:grid-cols-[1.05fr_1fr]">
+        <div>
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            className="glass-pill inline-flex w-fit items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-primary)]"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            </span>
+            Booking new projects · Tbilisi
+          </motion.div>
 
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[var(--color-muted)]">
-                I specialize in modern frontend and full-stack development,
-                building responsive dashboards, authentication flows, banking
-                interfaces, and polished user experiences using Next.js, React,
-                TypeScript, and Tailwind CSS.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                {techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-[var(--color-text)]"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              <div className="mt-9 flex flex-wrap gap-4">
-                <a
-                  href="#projects"
-                  className="rounded-2xl bg-gradient-to-r from-cyan-400 to-cyan-300 px-6 py-3 font-bold text-slate-950 shadow-lg shadow-cyan-400/20 transition hover:-translate-y-0.5 hover:shadow-cyan-400/30"
+          <h1 className="font-display mt-8 max-w-4xl text-[clamp(2.75rem,6.5vw,6rem)] font-bold leading-[0.95] tracking-[-0.04em]">
+            {headline.map((word, index) => (
+              <span key={word} className="inline-block overflow-hidden pb-2 align-bottom">
+                <motion.span
+                  className={`inline-block pr-[0.25em] ${
+                    word === "clients." ? "text-gradient" : ""
+                  }`}
+                  initial={{ y: "110%" }}
+                  animate={{ y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.15 + index * 0.07, ease }}
                 >
-                  View Projects
-                </a>
+                  {word}
+                </motion.span>
+              </span>
+            ))}
+          </h1>
 
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease }}
+            className="mt-8 max-w-xl text-lg leading-8 md:text-xl"
+          >
+            Goga Danelia &amp; team design and build fast, immersive websites, SaaS
+            products, and dashboards for ambitious brands — with Next.js, React,
+            and motion people remember.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.85, ease }}
+            className="mt-10 flex flex-wrap gap-4"
+          >
+            <a href="#contact" className="btn-primary group">
+              Start a project
+              <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a href="#work" className="btn-ghost group">
+              See our work
+              <ArrowDownRight className="h-5 w-5 transition group-hover:translate-y-0.5" />
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+            className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm"
+          >
+            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-muted)]">
+              Trusted by
+            </span>
+            {work
+              .filter((item) => item.url)
+              .map((client) => (
                 <a
-                  href="#contact"
-                  className="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-bold text-[var(--color-text)] transition hover:-translate-y-0.5 hover:border-cyan-400/40 hover:bg-cyan-400/10"
+                  key={client.name}
+                  href={client.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-display text-lg font-semibold text-[var(--color-text)] opacity-70 transition hover:opacity-100"
                 >
-                  Let’s Work Together
+                  {client.url?.replace(/^https?:\/\//, "")}
                 </a>
-              </div>
-            </div>
-
-            <div className="theme-card rounded-[2rem] p-6 shadow-2xl">
-              <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-300">
-                  What I Build
-                </p>
-
-                <div className="mt-6 grid gap-4">
-                  {highlights.map((item, index) => (
-                    <div
-                      key={item}
-                      className="theme-dark-box flex items-center gap-4 rounded-2xl p-4"
-                    >
-                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-cyan-400/10 text-sm font-black text-cyan-300">
-                        0{index + 1}
-                      </span>
-
-                      <span className="font-semibold text-[var(--color-text)]">
-                        {item}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-5 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-3xl font-black text-cyan-300">10+</p>
-                  <p className="mt-1 text-sm text-[var(--color-muted)]">
-                    UI sections built
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <p className="text-3xl font-black text-cyan-300">3+</p>
-                  <p className="mt-1 text-sm text-[var(--color-muted)]">
-                    Real app flows
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+              ))}
+          </motion.div>
         </div>
-      </section>
-    </Reveal>
+
+        <HeroShowcase />
+      </div>
+    </section>
   );
 }
